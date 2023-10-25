@@ -1,4 +1,5 @@
 import { Login } from "../components/login/Login";
+import '../main/App.css'
 
 function App() {
   return (
