@@ -4,19 +4,19 @@
 
 @font-face {
   font-family: "lora-regular";
-  src: url("../public/fonts/Lora-Regular.ttf");
+  src: url("../src/assets/fonts/Lora-Regular.ttf");
 }
 @font-face {
   font-family: "lora-bold";
-  src: url("../public/fonts/Lora-Bold.ttf");
+  src: url("../src/assets/fonts/Lora-Bold.ttf");
 }
 @font-face {
   font-family: "lora-bolditalic";
-  src: url("../public/fonts/Lora-BoldItalic.ttf");
+  src: url("../src/assets/fonts/Lora-BoldItalic.ttf");
 }
 @font-face {
   font-family: "lora-italic";
-  src: url("../public/fonts/Lora-Italic.ttf");
+  src: url("../src/assets/fonts/Lora-Italic.ttf");
 }
 
 body {

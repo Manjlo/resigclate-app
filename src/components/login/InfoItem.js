@@ -1,10 +1,10 @@
 import React from "react";
 
-function InfoItem({ text, SvgComponent }) {
+function InfoItem({ text, SvgComponent, type }) {
     return (
-      <div className="flex items-center justify-left border border-[#DACDA6] m-6 mr-12 rounded-md">
+      <div className="w-4/5 flex items-center justify-left border border-[#0074B7] m-6 sm:mr-12 sm:w-3/4 rounded-md">
         <SvgComponent className="ml-4"/>
-        <input className="p-4 focus:outline-none" placeholder={text}/>
+        <input type={type} className="p-2 focus:outline-none" placeholder={text}/>
       </div>
     );
   }

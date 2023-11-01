@@ -1,8 +1,8 @@
 
-function LoginButton() {
+function LoginButton({textButton}) {
     return(
-      <div>
-        <button className="LoginButton mr-6 p-1.5 pr-6 pl-6 border bg-[#0074B7] rounded-md text-white">Ingresa</button>
+      <div className="pb-8 sm:pb-0">
+        <button className="LoginButton text-xs sm:mr-6 p-2 pr-8 pl-8 sm:pr-12 sm:pl-12 border bg-[#0074B7] rounded-md text-white">{textButton}</button>
       </div>
     );
   }
