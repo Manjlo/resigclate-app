@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "../../assets/icons/logo.png"
 
 function Loge() {
@@ -11,7 +10,7 @@ function Loge() {
           </div>
       </div>
     );
-  }
-  
-  export { Loge };
+}
+
+export { Loge };
   

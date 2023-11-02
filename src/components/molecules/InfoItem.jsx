@@ -1,4 +1,3 @@
-import React from "react";
 
 function InfoItem({ text, SvgComponent, type }) {
     return (
@@ -6,8 +5,7 @@ function InfoItem({ text, SvgComponent, type }) {
         <SvgComponent className="ml-4"/>
         <input type={type} className="p-2 focus:outline-none" placeholder={text}/>
       </div>
-    );
-  }
+  );
+}
   
-  export { InfoItem };
-  
+export { InfoItem };

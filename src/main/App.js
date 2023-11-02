@@ -1,10 +1,10 @@
-import { Login } from "../components/login/Login";
+import { RouteHandler } from '../components/router/RouteHandler';
 import '../main/App.css'
 
 function App() {
   return (
     <div>
-      <Login/>
+      <RouteHandler/>    
     </div>
   );
 }
