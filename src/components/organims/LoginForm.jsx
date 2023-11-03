@@ -10,14 +10,14 @@ function Loginform () {
       <h2 className='text-xl sm:text-2xl sm:mr-8'>Iniciar sesion</h2>
       <ul>
         <li>
-          <InfoItem text={'Correo usuario'} SvgComponent={UserSvg}/>
+          <InfoItem type={'email'} text={'Correo usuario'} SvgComponent={UserSvg}/>
           <InfoItem type={'password'} text={'Contraseña'} SvgComponent={PasswordSvg}/>
         </li>
       </ul>
-      <LoginButton textButton={'Ingresa'}/>
+      <LoginButton buttonStyleMissing={'sm:mr-6'} textButton={'Ingresa'}/>
       <div className='relative'>
         <div className='absolute inset-0 border-t-2 border-[#37373e55] opacity-50 h-2 sm:w-0'></div>
-        <LinkToCreateAccount/>
+        <LinkToCreateAccount arrow={'→'} text={'Crear una cuenta'} route={'/register-page'}/>
       </div>
     </div>
   )
