@@ -3,13 +3,15 @@ import { LayersControl, TileLayer } from 'react-leaflet';
 
 const LayerSwitcher = ({ baseLayers }) => {
   return (
-    <LayersControl>
+    <div className=' relative'>
+      <LayersControl>
         {baseLayers.map((layer, i) => (
-        <LayersControl.BaseLayer key={i} name={layer.alias}>
+          <LayersControl.BaseLayer key={i} name={layer.alias}>
             <TileLayer attribution={layer.attribution} url={layer.url} />
-        </LayersControl.BaseLayer>
+          </LayersControl.BaseLayer>
         ))}
-    </LayersControl>
+      </LayersControl>
+    </div>
   );
 };
 
