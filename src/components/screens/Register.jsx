@@ -2,8 +2,15 @@ import { LinkToCreateAccount } from "../atoms/LinkToCreateAccount"
 import { LoginButton } from "../atoms/LoginButton"
 import { InfoItem } from "../molecules/InfoItem"
 import { MainCard } from "../templates/MainCard";
+import { useNavigate } from "react-router-dom";
+import { LOGIN_PATH } from "../router/routes";
 
 function Register() {
+  const navigate = useNavigate();
+  const callbackLogin = () => {
+    navigate(LOGIN_PATH)
+  }
+
   return(
     <MainCard templateStyle={'w-auto'}>
       <div className="flex flex-col w-full items-center pt-4 mt-4 mb-4">
@@ -19,7 +26,7 @@ function Register() {
         <LoginButton buttonStyleMissing={'pl-14 pr-14 sm:mb-8 sm:mr-0'} textButton={'Crea tu cuenta'}/>
         <div className='relative flex justify-start'>
           <div className='absolute inset-0 border-t-2 border-[#37373e55] opacity-50 h-2'></div>
-          <LinkToCreateAccount arrow={'←'} text={'Iniciar sesion'} route={'/'}/>
+          <LinkToCreateAccount arrow={'←'} text={'Iniciar sesion'} callback={callbackLogin}/>
         </div>
       </div>
     </MainCard>

@@ -1,10 +1,12 @@
 import { ReactComponent as UserSvg} from '../../assets/svg/usersvg.svg'
 import { ReactComponent as PasswordSvg} from '../../assets/svg/passwordsvg.svg'
+import { useNavigate } from 'react-router-dom';
 import { InfoItem } from "../molecules/InfoItem";
 import { LoginButton } from '../atoms/LoginButton';
 import { LinkToCreateAccount } from '../atoms/LinkToCreateAccount';
+import { REGISTER_PATH } from '../router/routes';
 
-function Loginform () {
+function Loginform ({handleLogin, callbackRegister}) {
   return (
     <div className="flex flex-col items-center justify-center pt-4 pb-4 sm:pt-16 sm:pb-16">
       <h2 className='text-xl sm:text-2xl sm:mr-8'>Iniciar sesion</h2>
@@ -17,7 +19,7 @@ function Loginform () {
       <LoginButton route={'/geovisor-resigcla'} buttonStyleMissing={'sm:mr-6'} textButton={'Ingresa'}/>
       <div className='relative'>
         <div className='absolute inset-0 border-t-2 border-[#37373e55] opacity-50 h-2 sm:w-0'></div>
-        <LinkToCreateAccount arrow={'→'} text={'Crear una cuenta'} route={'/register-page'}/>
+        <LinkToCreateAccount arrow={'→'} text={'Crear una cuenta'} callback={callbackRegister} />
       </div>
     </div>
   )
