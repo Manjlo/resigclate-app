@@ -1,11 +1,13 @@
 import { RouteHandler } from '../components/router/RouteHandler';
 import '../main/App.css'
+import { Provider } from 'react-redux';
+import store from './store';
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <RouteHandler/>    
-    </div>
+    </Provider>
   );
 }
 
