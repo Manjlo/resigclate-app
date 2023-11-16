@@ -16,7 +16,7 @@ function Loginform ({handleLogin, callbackRegister}) {
           <InfoItem type={'password'} text={'Contraseña'} SvgComponent={PasswordSvg}/>
         </li>
       </ul>
-      <LoginButton route={'/geovisor-resigcla'} buttonStyleMissing={'sm:mr-6'} textButton={'Ingresa'}/>
+      <LoginButton route={'/app'} buttonStyleMissing={'sm:mr-6'} textButton={'Ingresa'}/>
       <div className='relative'>
         <div className='absolute inset-0 border-t-2 border-[#37373e55] opacity-50 h-2 sm:w-0'></div>
         <LinkToCreateAccount arrow={'→'} text={'Crear una cuenta'} callback={callbackRegister} />

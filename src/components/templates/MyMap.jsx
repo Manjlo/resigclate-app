@@ -77,7 +77,7 @@ const MyMap = ({
         {selectPoint && (
           <MyCustomControl
             className={
-              "bg-white shadow-xl rounded-lg w-[350px] h-[40vh] top-[-34vh] right-[68vw]"
+              "bg-white shadow-2xl rounded-lg w-[350px] h-[40vh] top-[-34vh] right-[68vw]"
             }
           >
             <CreatePointForm />
