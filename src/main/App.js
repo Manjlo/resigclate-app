@@ -1,4 +1,4 @@
-import { RouteHandler } from '../components/router/RouteHandler';
+import RouteHandler from '../components/router/RouteHandler';
 import '../main/App.css'
 
 function App() {

@@ -29,4 +29,4 @@ const MyCustomControl = ({ children, className }) => {
     return div ? ReactDOM.createPortal(children, div) : null;
 };
 
-export { MyCustomControl };
+export default MyCustomControl;

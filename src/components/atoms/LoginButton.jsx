@@ -15,4 +15,4 @@ function LoginButton({textButton, buttonStyleMissing, route}) {
     );
   }
   
-  export { LoginButton }
+  export default LoginButton;

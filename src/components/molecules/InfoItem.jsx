@@ -8,4 +8,4 @@ function InfoItem({ text, SvgComponent, type, styleMissing }) {
   );
 }
   
-export { InfoItem };
+export default InfoItem;

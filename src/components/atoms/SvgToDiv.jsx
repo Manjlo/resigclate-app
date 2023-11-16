@@ -6,4 +6,4 @@ function SvgToDiv({SvgComponent}){
     )
 };
 
-export { SvgToDiv };
+export default SvgToDiv;

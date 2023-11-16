@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, Routes} from 'react-router-dom'
-import { Login } from '../screens/Login'
-import  { Register } from '../screens/Register'
-import { Geoviewer } from '../screens/Geoviewer'
+import Login from '../screens/Login'
+import  Register from '../screens/Register'
+import Geoviewer  from '../screens/Geoviewer'
 
 function RouteHandler () {
     return (
@@ -14,4 +14,4 @@ function RouteHandler () {
     )
 }
 
-export { RouteHandler };
+export default RouteHandler;

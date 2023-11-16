@@ -30,4 +30,4 @@ function LocationMarker(){
     );
 }
 
-export { LocationMarker };
+export default LocationMarker;

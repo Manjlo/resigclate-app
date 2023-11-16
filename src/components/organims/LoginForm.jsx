@@ -1,8 +1,8 @@
 import { ReactComponent as UserSvg} from '../../assets/svg/usersvg.svg'
 import { ReactComponent as PasswordSvg} from '../../assets/svg/passwordsvg.svg'
-import { InfoItem } from "../molecules/InfoItem";
-import { LoginButton } from '../atoms/LoginButton';
-import { LinkToCreateAccount } from '../atoms/LinkToCreateAccount';
+import InfoItem from "../molecules/InfoItem";
+import LoginButton from '../atoms/LoginButton';
+import LinkToCreateAccount from '../atoms/LinkToCreateAccount';
 
 function Loginform () {
   return (
@@ -23,4 +23,4 @@ function Loginform () {
   )
 }
 
-export { Loginform }
+export default Loginform;

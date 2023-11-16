@@ -13,5 +13,4 @@ const LayerSwitcher = ({ baseLayers }) => {
   );
 };
 
-export { LayerSwitcher };
-
+export default LayerSwitcher;

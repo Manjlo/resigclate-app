@@ -8,4 +8,4 @@ function SearchItem({ type, text, SvgComponent }) {
     )
 }
 
-export { SearchItem };
+export default SearchItem;

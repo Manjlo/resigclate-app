@@ -1,5 +1,9 @@
+.scale-on-click {
+    transition: transform 0.3s ease-in-out;
+}
+
 .scale-on-click:active {
-    scale: 0.95;
+    transform: scale(0.95);
 }
 
 .leaflet-container {

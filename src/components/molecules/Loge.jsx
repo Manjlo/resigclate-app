@@ -12,5 +12,5 @@ function Loge() {
     );
 }
 
-export { Loge };
+export default Loge;
   
