@@ -8,6 +8,16 @@ function DraggableMarker({ setPosition, setAddress }) {
   const markerRef = useRef(null);
   const [lastPosition, setLastPosition] = useState(center);
 
+  // Obtén la ubicación del usuario al cargar el componente
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLastPosition({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      });
+    });
+  }, []);
+
   useEffect(() => {
     setAddress(lastPosition);
   }, [lastPosition, setAddress]);
@@ -29,7 +39,7 @@ function DraggableMarker({ setPosition, setAddress }) {
     iconUrl: icono,
   });
 
-  return (
+  return lastPosition ? (
     <Marker
       draggable={true}
       eventHandlers={evenHandlers}
@@ -43,10 +53,10 @@ function DraggableMarker({ setPosition, setAddress }) {
               6
             )}, Longitud: ${lastPosition.lng.toFixed(6)}`
           : "Ubicación no disponible"}
-        , Arrastra el icono hacia otra <strong>ubicacion deseada</strong>
+        , arrastra el icono hacia otra <strong>ubicacion deseada</strong>
       </Popup>
     </Marker>
-  );
+  ) : null;
 }
 
 export default DraggableMarker;

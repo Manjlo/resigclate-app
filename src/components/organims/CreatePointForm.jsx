@@ -2,7 +2,12 @@ import Logo from "../../assets/icons/logo.png";
 import ComponentButton from "../atoms/ComponentButton";
 import React from "react";
 
-function CreatePointForm({ newAddress, setNewAddress, handleSubmit }) {
+function CreatePointForm({
+  newAddress,
+  setNewAddress,
+  handleSubmit,
+  handleSelectPoint,
+}) {
   const handleAddrressChange = (event) => {
     setNewAddress(event.target.value);
   };
@@ -10,7 +15,9 @@ function CreatePointForm({ newAddress, setNewAddress, handleSubmit }) {
   return (
     <article className="w-full bg-transparent flex flex-col h-auto">
       <div className="flex justify-between m-4 mr-6 ml-6 h-6">
-        <span>←</span>
+        <span onClick={handleSelectPoint} className="cursor-pointer hover:text-[#228b22]">
+          ←
+        </span>
         <img className="w-[25px] h-[25px]" src={Logo} alt="Logo" />
       </div>
       <div className="p-2 mr-4 ml-4 pr-4 pl-4 shadow-md rounded-md text-xs">
@@ -24,9 +31,9 @@ function CreatePointForm({ newAddress, setNewAddress, handleSubmit }) {
       <div className="mr-4 ml-4 mt-4 h-auto text-sm">
         <h3 className="ml-4 mb-2">Detalle del lugar</h3>
         <input
-          className="border pl-4 rounded-md w-full h-10 outline-none"
+          className="border opacity-80 truncate pl-4 rounded-md w-full h-10 outline-none"
           type="text"
-          placeholder="Agrega la direccion del punto"
+          placeholder="Agrega las coordenadas del punto [lat,lng]"
           value={newAddress}
           onChange={handleAddrressChange}
         />

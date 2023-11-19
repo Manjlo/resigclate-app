@@ -66,15 +66,6 @@ const MyMap = ({
             attribution={baseLayers[0].attribution}
             url={baseLayers[0].url}
           />
-          {!selectPoint && (
-            <MyCustomControl
-              className={
-                "h-[70px] w-[70px] right-[88vw] xl:right-[90vw] relative rounded-full shadow-sm"
-              }
-            >
-              <img src={Logo} alt="Logo" />
-            </MyCustomControl>
-          )}
           <MyCustomControl
             className={
               "grid grid-rows-2 gap-2 sm:w-10 sm:h-24 bg-white shadow-md rounded-md relative top-[44px]"
@@ -91,6 +82,15 @@ const MyMap = ({
           />
         )}
       </MapContainer>
+      {!selectPoint && (
+        <div
+          className={
+            "h-[70px] w-[70px] absolute top-4 left-12 rounded-full shadow-sm z-[10000]"
+          }
+        >
+          <img src={Logo} alt="Logo" />
+        </div>
+      )}
       {!selectPoint && (
         <div className={"w-auto absolute left-1/3 top-[77vh] z-[1000]"}>
           <SvgToDiv SvgComponent={iconBarSvg} />
@@ -111,6 +111,7 @@ const MyMap = ({
             newAddress={address}
             setNewAddress={setAddress}
             handleSubmit={handleSubmit}
+            handleSelectPoint={handleSelectPoint}
           />
         </div>
       )}
