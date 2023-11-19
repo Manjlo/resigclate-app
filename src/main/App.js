@@ -1,5 +1,5 @@
 import RouteHandler from '../components/router/RouteHandler';
-import '../main/App.css'
+import './App.css'
 import { Provider } from 'react-redux';
 import store from './store';
 

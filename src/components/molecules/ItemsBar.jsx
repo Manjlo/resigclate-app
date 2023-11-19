@@ -11,7 +11,7 @@ function ItemsBar({ perfilurl, usuario, handleSelectPoint }) {
       <IconButton SvgComponent={statisticsSvg} />
       <IconButton
         callback={handleSelectPoint}
-        className={"scale-on-click relative top-[-20px]"}
+        className={"hover:scale-110 relative top-[-20px]"}
         SvgComponent={createPointSvg}
       />
       <IconButton SvgComponent={historySvg} />
