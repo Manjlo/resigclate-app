@@ -3,9 +3,15 @@ import { TemplateGeo } from "../templates/TemplateGeo";
 
 function Geoviewer() {
   const [selectPoint, setSelectPoint] = useState(false);
+  const [selectRecyPoint, setSelectRecyPoint] = useState(false)
 
   const handleSelectPoint = () => {
     setSelectPoint(!selectPoint);
+  };
+
+  const handleSelectRecyPoint = () => {
+    setSelectRecyPoint(!selectRecyPoint);
+    setSelectPoint(true);
   };
 
   return (
@@ -14,6 +20,8 @@ function Geoviewer() {
         <TemplateGeo
           handleSelectPoint={handleSelectPoint}
           selectPoint={selectPoint}
+          selectRecyPoint={selectRecyPoint}
+          handleSelectRecyPoint={handleSelectRecyPoint}
         />
       </section>
     </div>

@@ -15,6 +15,7 @@ import DraggableMarker from "../atoms/DraggableMarker";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
 import { recyclingPoints } from "../../assets/json/recyclingPoints.js";
 import JsonLayers from "../atoms/JsonLayers.jsx";
+import PointForm from "../organims/PointForm.jsx";
 
 const usuario = "javier";
 
@@ -26,6 +27,8 @@ const MyMap = ({
   zoomControl,
   selectPoint,
   handleSelectPoint,
+  handleSelectRecyPoint,
+  selectRecyPoint,
 }) => {
   const [address, setAddress] = useState("");
 
@@ -67,7 +70,10 @@ const MyMap = ({
           attribution={baseLayers[0].attribution}
           url={baseLayers[0].url}
         />
-        <JsonLayers data={recyclingPoints} />
+        <JsonLayers
+          handleSelectRecyPoint={handleSelectRecyPoint}
+          data={recyclingPoints}
+        />
         <MyCustomControl
           className={
             "grid grid-rows-2 gap-2 sm:w-10 sm:h-24 bg-white shadow-md rounded-md relative top-[44px]"
@@ -76,7 +82,7 @@ const MyMap = ({
           <LocationMarker />
           <LayerSwitcher baseLayers={baseLayers} />
         </MyCustomControl>
-        {selectPoint && (
+        {selectPoint && !selectRecyPoint && (
           <DraggableMarker
             setPosition={(position) => updatePosition(position)}
             setAddress={setAddress}
@@ -99,10 +105,13 @@ const MyMap = ({
             handleSelectPoint={handleSelectPoint}
             perfilurl={usuarioUrl}
             usuario={usuario}
+            styleMissing={
+              "grid grid-cols-5 h-auto relative items-center justify-center"
+            }
           />
         </div>
       )}
-      {selectPoint && (
+      {selectPoint && !selectRecyPoint && (
         <div
           className={
             "bg-white absolute shadow-2xl rounded-lg w-[350px] h-auto top-6 left-6 z-[10000]"
@@ -115,6 +124,20 @@ const MyMap = ({
             handleSelectPoint={handleSelectPoint}
           />
         </div>
+      )}
+      {selectRecyPoint && (
+        <div className="bg-white absolute shadow-xl rounded-lg w-auto h-auto top-7 left-28 z-[1000]">
+          <PointForm />
+        </div>
+      )}
+      {selectRecyPoint && (
+        <ItemsBar
+          styleMissing={
+            "h-[97.5%] w-[80px] rounded-l-lg absolute shadow-2xl top-2 bg-white z-[1000] flex flex-col justify-start items-center space-y-4 pt-16 shadow-[inset_0_2px_24px_rgba(0,0,0,0.25)]"
+          }
+          setStyleIconButton={"hidden"}
+          imgStyleMissing={"absolute top-[84vh]"}
+        />
       )}
     </>
   );

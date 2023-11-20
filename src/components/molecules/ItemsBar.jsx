@@ -4,18 +4,27 @@ import { ReactComponent as statisticsSvg } from "../../assets/svg/statisticsSvg.
 import { ReactComponent as historySvg } from "../../assets/svg/historySvg.svg";
 import { ReactComponent as createPointSvg } from "../../assets/svg/createPointSvg.svg";
 
-function ItemsBar({ perfilurl, usuario, handleSelectPoint }) {
+function ItemsBar({
+  perfilurl,
+  usuario,
+  handleSelectPoint,
+  styleMissing,
+  setStyleIconButton,
+  imgStyleMissing,
+}) {
   return (
-    <div className="grid grid-cols-5 h-auto relative items-center justify-center">
+    <div className={styleMissing}>
       <IconButton SvgComponent={educationSvg} />
       <IconButton SvgComponent={statisticsSvg} />
       <IconButton
         callback={handleSelectPoint}
-        className={"hover:scale-110 relative top-[-20px]"}
+        className={`hover:scale-110 relative top-[-20px] ${setStyleIconButton}`}
         SvgComponent={createPointSvg}
       />
       <IconButton SvgComponent={historySvg} />
-      <div className="rounded-full w-auto h-auto flex items-center justify-center">
+      <div
+        className={`rounded-full w-auto h-auto flex items-center justify-center ${imgStyleMissing}`}
+      >
         <img
           className="w-[35px] h-[35px] border border-black rounded-full"
           src={perfilurl}

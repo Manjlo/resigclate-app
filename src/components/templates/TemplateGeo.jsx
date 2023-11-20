@@ -14,6 +14,8 @@ function TemplateGeo(props) {
       zoomControl={false}
       handleSelectPoint={props.handleSelectPoint}
       selectPoint={props.selectPoint}
+      handleSelectRecyPoint={props.handleSelectRecyPoint}
+      selectRecyPoint={props.selectRecyPoint}
     />
   );
 }
