@@ -53,7 +53,7 @@ function DraggableMarker({ setPosition, setAddress }) {
               6
             )}, Longitud: ${lastPosition.lng.toFixed(6)}`
           : "Ubicación no disponible"}
-        , arrastra el icono hacia otra <strong>ubicacion deseada</strong>
+        , arrastra el personaje hacia otra <strong>ubicacion deseada</strong>
       </Popup>
     </Marker>
   ) : null;

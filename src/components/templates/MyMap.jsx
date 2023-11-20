@@ -13,6 +13,8 @@ import SvgToDiv from "../atoms/SvgToDiv";
 import CreatePointForm from "../organims/CreatePointForm";
 import DraggableMarker from "../atoms/DraggableMarker";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
+import { recyclingPoints } from "../../assets/json/recyclingPoints.js";
+import JsonLayers from "../atoms/JsonLayers.jsx";
 
 const usuario = "javier";
 
@@ -61,19 +63,18 @@ const MyMap = ({
         scrollWheelZoom={scrollWheelZoom}
         zoomControl={zoomControl}
       >
-        <MyCustomControl>
-          <TileLayer
-            attribution={baseLayers[0].attribution}
-            url={baseLayers[0].url}
-          />
-          <MyCustomControl
-            className={
-              "grid grid-rows-2 gap-2 sm:w-10 sm:h-24 bg-white shadow-md rounded-md relative top-[44px]"
-            }
-          >
-            <LocationMarker />
-            <LayerSwitcher baseLayers={baseLayers} />
-          </MyCustomControl>
+        <TileLayer
+          attribution={baseLayers[0].attribution}
+          url={baseLayers[0].url}
+        />
+        <JsonLayers data={recyclingPoints} />
+        <MyCustomControl
+          className={
+            "grid grid-rows-2 gap-2 sm:w-10 sm:h-24 bg-white shadow-md rounded-md relative top-[44px]"
+          }
+        >
+          <LocationMarker />
+          <LayerSwitcher baseLayers={baseLayers} />
         </MyCustomControl>
         {selectPoint && (
           <DraggableMarker
