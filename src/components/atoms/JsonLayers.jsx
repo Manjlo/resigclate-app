@@ -7,15 +7,9 @@ function JsonLayers({ data, handleSelectRecyPoint }) {
     iconUrl: icono,
   });
 
-  /* const pointToLayer = (feature, latlng) => {
-    return L.marker(latlng, { icon: myIcon });
-  }; */
-
   const pointToLayer = (feature, latlng) => {
     const marker = L.marker(latlng, { icon: myIcon });
     marker.on("click", () => {
-      // Aquí puedes manejar el evento de clic.
-      // Por ejemplo, podrías llamar a una función con la información del punto:
       handleSelectRecyPoint(feature);
     });
     return marker;

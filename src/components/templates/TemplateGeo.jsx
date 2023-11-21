@@ -16,6 +16,7 @@ function TemplateGeo(props) {
       selectPoint={props.selectPoint}
       handleSelectRecyPoint={props.handleSelectRecyPoint}
       selectRecyPoint={props.selectRecyPoint}
+      recyPointSelected={props.recyPointSelected}
     />
   );
 }

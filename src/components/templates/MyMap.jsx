@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import LayerSwitcher from "../molecules/LayerSwitcher";
 import MyCustomControl from "../organims/CustomControl";
@@ -29,6 +29,7 @@ const MyMap = ({
   handleSelectPoint,
   handleSelectRecyPoint,
   selectRecyPoint,
+  recyPointSelected,
 }) => {
   const [address, setAddress] = useState("");
 
@@ -99,7 +100,7 @@ const MyMap = ({
         </div>
       )}
       {!selectPoint && (
-        <div className={"w-auto absolute left-1/3 top-[77vh] z-[1000]"}>
+        <div className={"w-auto absolute left-1/3 bottom-12 z-[1000]"}>
           <SvgToDiv SvgComponent={iconBarSvg} />
           <ItemsBar
             handleSelectPoint={handleSelectPoint}
@@ -127,7 +128,10 @@ const MyMap = ({
       )}
       {selectRecyPoint && (
         <div className="bg-white absolute shadow-xl rounded-lg w-auto h-auto top-7 left-28 z-[1000]">
-          <PointForm />
+          <PointForm
+            data={recyclingPoints}
+            recyPointSelected={recyPointSelected}
+          />
         </div>
       )}
       {selectRecyPoint && (
