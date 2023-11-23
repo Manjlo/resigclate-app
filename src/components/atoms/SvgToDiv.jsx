@@ -1,6 +1,6 @@
-function SvgToDiv({SvgComponent, style}){
+function SvgToDiv({SvgComponent, styleDiv}){
     return (
-        <div className={`h-auto w-auto relative top-14 ${style}`}>
+        <div className={`h-auto w-auto ${styleDiv}`}>
             {SvgComponent && <SvgComponent />}
         </div>
     )

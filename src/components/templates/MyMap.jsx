@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import LayerSwitcher from "../molecules/LayerSwitcher";
 import MyCustomControl from "../organims/CustomControl";
@@ -11,7 +11,7 @@ import ItemsBar from "../molecules/ItemsBar";
 import usuarioUrl from "../../assets/icons/perfil.png";
 import SvgToDiv from "../atoms/SvgToDiv";
 import CreatePointForm from "../organims/CreatePointForm";
-import DraggableMarker from "../atoms/DraggableMarker";
+import MarkerPoint from "../atoms/MarkerPoint.jsx";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
 import { recyclingPoints } from "../../assets/json/recyclingPoints.js";
 import JsonLayers from "../atoms/JsonLayers.jsx";
@@ -84,10 +84,7 @@ const MyMap = ({
           <LayerSwitcher baseLayers={baseLayers} />
         </MyCustomControl>
         {selectPoint && !selectRecyPoint && (
-          <DraggableMarker
-            setPosition={(position) => updatePosition(position)}
-            setAddress={setAddress}
-          />
+          <MarkerPoint setAddress={setAddress} />
         )}
       </MapContainer>
       {!selectPoint && (
@@ -101,7 +98,7 @@ const MyMap = ({
       )}
       {!selectPoint && (
         <div className={"w-auto absolute left-1/3 bottom-12 z-[1000]"}>
-          <SvgToDiv SvgComponent={iconBarSvg} />
+          <SvgToDiv SvgComponent={iconBarSvg} styleDiv={"top-14 relative"} />
           <ItemsBar
             handleSelectPoint={handleSelectPoint}
             perfilurl={usuarioUrl}
@@ -137,7 +134,7 @@ const MyMap = ({
       {selectRecyPoint && (
         <ItemsBar
           styleMissing={
-            "w-[80px] sm:h-[98vh] rounded-l-md absolute shadow-2xl top-[9.4px] bg-white z-[1000] flex flex-col justify-start items-center space-y-4 pt-16 shadow-[inset_0_2px_24px_rgba(0,0,0,0.45)]"
+            "w-[80px] sm:h-[98vh] rounded-l-md absolute shadow-2xl top-1.5 2xl:top-[9.4px] bg-white z-[1000] flex flex-col justify-start items-center space-y-4 pt-16 shadow-[inset_0_2px_24px_rgba(0,0,0,0.45)]"
           }
           setStyleIconButton={"hidden"}
           imgStyleMissing={"absolute top-[84vh]"}

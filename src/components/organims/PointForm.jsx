@@ -6,7 +6,7 @@ import { ReactComponent as timeIcon } from "../../assets/svg/time.svg";
 
 function PointForm({ data, recyPointSelected }) {
   return (
-    <article className="w-[400px] h-auto mb-6 flex flex-col overflow-auto max-h-[91vh]">
+    <article className="w-[400px] h-auto mb-6 flex flex-col overflow-auto max-h-[88vh] 2xl:max-h-[91vh]">
       {data.features.map((feature, index) => {
         return (
           <div key={index}>
@@ -46,7 +46,7 @@ function PointForm({ data, recyPointSelected }) {
                   <aside className="flex items-center justify-center space-x-4">
                     <span>
                       <SvgToDiv
-                        style={"top-0 cursor-pointer"}
+                        styleDiv={"top-0 cursor-pointer"}
                         SvgComponent={routeIcon}
                       />
                     </span>
@@ -55,7 +55,7 @@ function PointForm({ data, recyPointSelected }) {
                   <aside className="flex items-center justify-center space-x-4">
                     <span>
                       <SvgToDiv
-                        style={"top-0 cursor-pointer"}
+                        styleDiv={"top-0 cursor-pointer"}
                         SvgComponent={materialIcon}
                       />
                     </span>

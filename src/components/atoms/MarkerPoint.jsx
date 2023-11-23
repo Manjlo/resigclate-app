@@ -1,14 +1,13 @@
 import { useRef, useMemo, useState, useEffect } from "react";
 import { Marker, Popup } from "react-leaflet";
 import { center } from "../templates/TemplateGeo";
-import icono from "../../assets/svg/draggableMarkerSvg.svg";
+import icono from "../../assets/svg/MarkerPointSvg.svg";
 import L from "leaflet";
 
-function DraggableMarker({ setPosition, setAddress }) {
+function MarkerPoint({ setAddress }) {
   const markerRef = useRef(null);
   const [lastPosition, setLastPosition] = useState(center);
 
-  // Obtén la ubicación del usuario al cargar el componente
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setLastPosition({
@@ -22,20 +21,17 @@ function DraggableMarker({ setPosition, setAddress }) {
     setAddress(lastPosition);
   }, [lastPosition, setAddress]);
 
-  const evenHandlers = useMemo(
-    () => ({
-      dragend() {
-        const marker = markerRef.current;
-        if (marker != null) {
-          const newPosition = marker.getLatLng();
-          setLastPosition(newPosition);
-        }
-      },
-    }),
-    [setPosition]
-  );
+  const evenHandlers = useMemo(() => ({
+    dragend() {
+      const marker = markerRef.current;
+      if (marker != null) {
+        const newPosition = marker.getLatLng();
+        setLastPosition(newPosition);
+      }
+    },
+  }));
 
-  const draggableMarkerIcon = new L.icon({
+  const MarkerIcon = new L.icon({
     iconUrl: icono,
   });
 
@@ -45,7 +41,7 @@ function DraggableMarker({ setPosition, setAddress }) {
       eventHandlers={evenHandlers}
       position={lastPosition}
       ref={markerRef}
-      icon={draggableMarkerIcon}
+      icon={MarkerIcon}
     >
       <Popup>
         {lastPosition && lastPosition.lat && lastPosition.lng
@@ -59,4 +55,4 @@ function DraggableMarker({ setPosition, setAddress }) {
   ) : null;
 }
 
-export default DraggableMarker;
+export default MarkerPoint;

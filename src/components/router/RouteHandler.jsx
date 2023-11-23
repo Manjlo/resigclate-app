@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes, Router, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Login from "../screens/Login";
 import Register from "../screens/Register";
 import Geoviewer  from "../screens/Geoviewer";
