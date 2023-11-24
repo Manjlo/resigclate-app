@@ -124,7 +124,7 @@ const MyMap = ({
         </div>
       )}
       {selectRecyPoint && (
-        <div className="bg-white absolute shadow-2xl rounded-lg w-auto h-auto top-7 left-28 z-[1000]">
+        <div className="bg-white absolute shadow-2xl rounded-lg w-auto h-auto top-0 sm:top-7 left-0 sm:left-28 z-[1000]">
           <PointForm
             data={recyclingPoints}
             recyPointSelected={recyPointSelected}
@@ -134,10 +134,10 @@ const MyMap = ({
       {selectRecyPoint && (
         <ItemsBar
           styleMissing={
-            "w-[80px] sm:h-[98vh] rounded-l-md absolute shadow-2xl top-1.5 2xl:top-[9.4px] bg-white z-[1000] flex flex-col justify-start items-center space-y-4 pt-16 shadow-[inset_0_2px_24px_rgba(0,0,0,0.45)]"
+            "w-[80px] sm:h-[98vh] rounded-l-md absolute shadow-2xl top-1.5 2xl:top-[9.4px] bg-white z-[1000] flex flex-col justify-start items-center space-y-4 pt-16 shadow-[inset_0_2px_24px_rgba(0,0,0,0.45)] hidden sm:block"
           }
           setStyleIconButton={"hidden"}
-          imgStyleMissing={"absolute top-[84vh]"}
+          imgStyleMissing={"absolute top-[84vh] ml-5"}
         />
       )}
     </>
