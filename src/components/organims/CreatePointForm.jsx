@@ -13,9 +13,9 @@ function CreatePointForm({
   };
 
   return (
-    <article className="w-full bg-transparent flex flex-col h-auto sm:pt-0 pt-6">
+    <article className="w-full bg-transparent flex flex-col h-auto sm:pt-0 pt-4">
       <div className="flex justify-between m-4 mr-6 ml-6 h-6">
-        <span onClick={handleSelectPoint} className="cursor-pointer hover:text-[#228b22]">
+        <span onClick={handleSelectPoint} className="cursor-pointer hover:text-[#228b22] flex items-center justify-center text-xl">
           ←
         </span>
         <img className="w-[25px] h-[25px]" src={Logo} alt="Logo" />

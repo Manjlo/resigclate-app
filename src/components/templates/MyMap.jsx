@@ -79,7 +79,7 @@ const MyMap = ({
         />
         <MyCustomControl
           className={
-            "sm:grid sm:grid-rows-2 gap-2 sm:w-10 w-10 h-10 sm:h-24 bg-white shadow-md rounded-lg relative sm:top-[44px] top-[730px] flex items-center justify-center right-4 sm:right-0"
+            "sm:grid sm:grid-rows-2 gap-2 sm:w-10 w-10 h-10 sm:h-24 bg-white shadow-md rounded-lg relative sm:top-[44px] top-[15vh] flex items-center justify-center right-3.5 sm:right-0"
           }
         >
           <LocationMarker />
@@ -100,7 +100,7 @@ const MyMap = ({
       )}
       {!selectPoint && !selectRecyPoint && (
         <div
-          className={"w-auto absolute left-8 sm:left-1/3 bottom-12 z-[1000]"}
+          className={"w-auto absolute m-4 mb-4 sm:left-1/3 bottom-4 z-[1000]"}
         >
           <SvgToDiv
             SvgComponent={iconBarMovilSvg}
@@ -135,11 +135,11 @@ const MyMap = ({
         </div>
       )}
       {selectRecyPoint && (
-        <div className="bg-white absolute shadow-2xl rounded-lg w-auto h-auto top-0 sm:top-7 left-0 sm:left-28 z-[1000]">
+        <div className="bg-white absolute shadow-2xl rounded-none sm:rounded-lg w-auto h-auto top-0 sm:top-7 left-0 sm:left-28 z-[1000]">
           <PointForm
             data={recyclingPoints}
             recyPointSelected={recyPointSelected}
-            handleSelectRecyPoint={handleSelectRecyPoint}   
+            handleSelectRecyPoint={handleSelectRecyPoint}
           />
         </div>
       )}

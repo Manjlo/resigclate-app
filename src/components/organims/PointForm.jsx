@@ -13,13 +13,13 @@ import { ReactComponent as UserSvg } from "../../assets/svg/searchsvg.svg";
 
 function PointForm({ data, recyPointSelected, handleSelectRecyPoint }) {
   return (
-    <article className="sm:w-[400px] w-[100vw] h-[100vh] sm:h-auto sm:mb-6 flex flex-col overflow-auto sm:max-h-[88vh] 2xl:max-h-[91vh]">
+    <article className="sm:w-[400px] w-[100vw] h-[100vh] rounded-lg sm:h-auto sm:mb-6 flex flex-col overflow-auto sm:max-h-[88vh] 2xl:max-h-[91vh]">
       {data.features.map((feature, index) => {
         return (
           <div key={index}>
             {recyPointSelected &&
               recyPointSelected.properties.id === feature.properties.id && (
-                <div className="sm:hidden flex space-x-80 px-8 pt-10">
+                <div className="sm:hidden flex space-x-72 px-8 pt-10 items-center">
                   <span onClick={handleSelectRecyPoint}>
                     <SvgToDiv SvgComponent={backIcon} />
                   </span>
@@ -98,7 +98,7 @@ function PointForm({ data, recyPointSelected, handleSelectRecyPoint }) {
           <div key={index}>
             {recyPointSelected &&
               recyPointSelected.properties.id === feature.properties.id && (
-                <aside className="grid grid-cols-2 text-xs p-2 pr-8 sm:py-6 sm:border-b-2 sm:border-y-stone-400 xs:border-none py-1 pt-6">
+                <aside className=" flex items-center justify-start sm:grid sm:grid-cols-2 text-xs p-2 pr-8 sm:py-6 sm:border-b-2 sm:border-y-stone-400 xs:border-none py-1 pt-6 ml-10 sm:ml-0">
                   <aside className="flex ml-[-18px] sm:ml-2 items-center justify-center space-x-6 sm:space-x-2">
                     <span>
                       <SvgToDiv
