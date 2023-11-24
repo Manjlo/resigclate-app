@@ -123,7 +123,7 @@ const MyMap = ({
       {selectPoint && !selectRecyPoint && (
         <div
           className={
-            "bg-white absolute shadow-2xl rounded-lg sm:w-[350px] w-full h-auto top-0 sm:top-6 left-0 sm:left-6 z-[10000]"
+            "bg-white absolute shadow-2xl rounded-none sm:rounded-lg sm:w-[350px] w-full h-auto top-0 sm:top-6 left-0 sm:left-6 z-[10000]"
           }
         >
           <CreatePointForm

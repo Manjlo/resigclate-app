@@ -6,17 +6,27 @@
     "url": "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
   },
   {
-    "name": "Stadia.AlidadeSmoothDark",
+    "name": "Mapbox Navigation Night",
     "alias": "Cartografia Nocturna",
-    "attribution": "&copy; <a href='https://www.stadiamaps.com/' target='_blank'>Stadia Maps</a> &copy; <a href='https://openmaptiles.org/' target='_blank'>OpenMapTiles</a> &copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors",
+    "attribution": "&copy; <a href='https://www.mapbox.com/about/maps/' target='_blank'>Mapbox</a> &copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors",
     "url": "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-    "id": "mapbox/dark-v11",
+    "id": "mapbox/navigation-night-v1",
     "accessToken": "pk.eyJ1IjoiamVuZXN0aXZlbiIsImEiOiJjbHBjdGRmcjIwcmxrMmlwOXR1MGY1NjZxIn0.X6G1MEi0Ga-8A2oxknq-hA"
   },
   {
-    "name": "Esri.WorldImagery",
-    "alias": "Cartografia Satelite",
-    "attribution": "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
-    "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+    "name": "Mapbox Navigation Day",
+    "alias": "Cartografia Clara",
+    "attribution": "&copy; <a href='https://www.mapbox.com/about/maps/' target='_blank'>Mapbox</a> &copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors",
+    "url": "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+    "id": "mapbox/navigation-day-v1",
+    "accessToken": "pk.eyJ1IjoiamVuZXN0aXZlbiIsImEiOiJjbHBjdGRmcjIwcmxrMmlwOXR1MGY1NjZxIn0.X6G1MEi0Ga-8A2oxknq-hA"
+  },
+  {
+    "name": "Mapbox Satellite",
+    "alias": "Cartografia Satelital",
+    "attribution": "&copy; <a href='https://www.mapbox.com/about/maps/' target='_blank'>Mapbox</a> &copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors",
+    "url": "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+    "id": "mapbox/satellite-v9",
+    "accessToken": "pk.eyJ1IjoiamVuZXN0aXZlbiIsImEiOiJjbHBjdGRmcjIwcmxrMmlwOXR1MGY1NjZxIn0.X6G1MEi0Ga-8A2oxknq-hA"
   }
 ]
