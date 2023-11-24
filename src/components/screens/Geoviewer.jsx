@@ -13,12 +13,9 @@ function Geoviewer() {
 
   const handleSelectRecyPoint = (point, icon) => {
     setSelectRecyPoint(!selectRecyPoint);
-    setSelectPoint(true);
     setRecyPointSelected(point);
     setChangeIcon(icon);
   };
-  console.log(recyPointSelected);
-  console.log(changeIcon);
 
   return (
     <div className="flex items-center justify-center h-screen">

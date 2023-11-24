@@ -8,7 +8,7 @@ function TemplateGeo(props) {
   return (
     <MyMap
       center={center}
-      zoom={16}
+      zoom={20}
       scrollWheelZoom={true}
       baseLayers={baseLayers}
       zoomControl={false}

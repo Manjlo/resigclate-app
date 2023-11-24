@@ -8,8 +8,10 @@ import { ReactComponent as timeIcon } from "../../assets/svg/time.svg";
 import { ReactComponent as timeIconMovil } from "../../assets/svg/timeMovil.svg";
 import { ReactComponent as searchIcon } from "../../assets/svg/searchsvg.svg";
 import { ReactComponent as backIcon } from "../../assets/svg/backIcon.svg";
+import SearchItem from "../molecules/SearchItem";
+import { ReactComponent as UserSvg } from "../../assets/svg/searchsvg.svg";
 
-function PointForm({ data, recyPointSelected }) {
+function PointForm({ data, recyPointSelected, handleSelectRecyPoint }) {
   return (
     <article className="sm:w-[400px] w-[100vw] h-[100vh] sm:h-auto sm:mb-6 flex flex-col overflow-auto sm:max-h-[88vh] 2xl:max-h-[91vh]">
       {data.features.map((feature, index) => {
@@ -17,8 +19,8 @@ function PointForm({ data, recyPointSelected }) {
           <div key={index}>
             {recyPointSelected &&
               recyPointSelected.properties.id === feature.properties.id && (
-                <div className="sm:hidden flex space-x-72 px-8 pt-10">
-                  <span>
+                <div className="sm:hidden flex space-x-80 px-8 pt-10">
+                  <span onClick={handleSelectRecyPoint}>
                     <SvgToDiv SvgComponent={backIcon} />
                   </span>
                   <span>
@@ -47,6 +49,23 @@ function PointForm({ data, recyPointSelected }) {
             {recyPointSelected &&
               recyPointSelected.properties.id === feature.properties.id && (
                 <>
+                  <div
+                    className={
+                      "absolute w-[350px] top-6 left-6 h-auto bg-white  rounded-md shadow-xl z-[1000] hidden sm:block"
+                    }
+                  >
+                    <SearchItem
+                      type={"search"}
+                      text={"Buscar centros de reciclaje"}
+                      SvgComponent={UserSvg}
+                      w={"sm:w-3/4 h-auto"}
+                    />
+                    <div className="absolute top-3 right-2 rounded-sm h-4 w-6 flex items-center justify-center cursor-pointer">
+                      <span onClick={handleSelectRecyPoint}>
+                        <SvgToDiv SvgComponent={backIcon} />
+                      </span>
+                    </div>
+                  </div>
                   <img
                     className="sm:w-auto w-5/6 sm:m-0 m-2 mx-8 rounded-lg sm:rounded-t-lg sm:rounded-b-none"
                     src={feature.properties.url_image}
@@ -80,7 +99,7 @@ function PointForm({ data, recyPointSelected }) {
             {recyPointSelected &&
               recyPointSelected.properties.id === feature.properties.id && (
                 <aside className="grid grid-cols-2 text-xs p-2 pr-8 sm:py-6 sm:border-b-2 sm:border-y-stone-400 xs:border-none py-1 pt-6">
-                  <aside className="flex ml-1 sm:ml-2 items-center justify-center space-x-6 sm:space-x-2">
+                  <aside className="flex ml-[-18px] sm:ml-2 items-center justify-center space-x-6 sm:space-x-2">
                     <span>
                       <SvgToDiv
                         styleDiv={"top-0 cursor-pointer hidden sm:block"}
@@ -128,7 +147,9 @@ function PointForm({ data, recyPointSelected }) {
                         SvgComponent={addressIconMovil}
                       />
                     </span>
-                    <p className="pl-3 sm:pl-1">{feature.properties.direccion}</p>
+                    <p className="pl-3 sm:pl-1">
+                      {feature.properties.direccion}
+                    </p>
                   </aside>
                   <aside className="flex items-center justify-left text-left text-xs space-x-4 pl-0 sm:pl-1">
                     <span>

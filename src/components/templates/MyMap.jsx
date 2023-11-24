@@ -6,6 +6,7 @@ import SearchItem from "../molecules/SearchItem";
 import Logo from "../../assets/icons/logo.png";
 import { ReactComponent as UserSvg } from "../../assets/svg/searchsvg.svg";
 import { ReactComponent as iconBarSvg } from "../../assets/svg/iconBars.svg";
+import { ReactComponent as iconBarMovilSvg } from "../../assets/svg/barMovil.svg";
 import LocationMarker from "../atoms/LocationMarker";
 import ItemsBar from "../molecules/ItemsBar";
 import usuarioUrl from "../../assets/icons/perfil.png";
@@ -47,16 +48,17 @@ const MyMap = ({
 
   return (
     <>
-      {!selectPoint && (
+      {!selectPoint && !selectRecyPoint && (
         <div
           className={
-            "absolute w-[300px] lg:w-[400px] top-8 ml-6 left-1/3 h-auto bg-white rounded-md shadow-lg text-sm z-[1000]"
+            "absolute w-5/6 sm:w-[300px] lg:w-[400px] top-12 sm:top-8 ml-6 sm:left-1/3 left-2 h-auto bg-white  rounded-lg sm:rounded-md shadow-xl text-sm z-[1000] p-2 sm:p-0"
           }
         >
           <SearchItem
             type={"search"}
             text={"Buscar centros de reciclaje"}
             SvgComponent={UserSvg}
+            w={"sm:w-[88%] h-auto"}
           />
         </div>
       )}
@@ -77,7 +79,7 @@ const MyMap = ({
         />
         <MyCustomControl
           className={
-            "grid grid-rows-2 gap-2 sm:w-10 sm:h-24 bg-white shadow-md rounded-md relative top-[44px]"
+            "sm:grid sm:grid-rows-2 gap-2 sm:w-10 w-10 h-10 sm:h-24 bg-white shadow-md rounded-lg relative sm:top-[44px] top-[730px] flex items-center justify-center right-4 sm:right-0"
           }
         >
           <LocationMarker />
@@ -87,18 +89,27 @@ const MyMap = ({
           <MarkerPoint setAddress={setAddress} />
         )}
       </MapContainer>
-      {!selectPoint && (
+      {!selectPoint && !selectRecyPoint && (
         <div
           className={
-            "h-[70px] w-[70px] absolute top-4 left-12 rounded-full shadow-sm z-[10000]"
+            "w-8 h-8 sm:h-[70px] sm:w-[70px] absolute top-[60px] sm:top-4 right-12 sm:left-12 rounded-full shadow-sm z-[10000]"
           }
         >
           <img src={Logo} alt="Logo" />
         </div>
       )}
-      {!selectPoint && (
-        <div className={"w-auto absolute left-1/3 bottom-12 z-[1000]"}>
-          <SvgToDiv SvgComponent={iconBarSvg} styleDiv={"top-14 relative"} />
+      {!selectPoint && !selectRecyPoint && (
+        <div
+          className={"w-auto absolute left-8 sm:left-1/3 bottom-12 z-[1000]"}
+        >
+          <SvgToDiv
+            SvgComponent={iconBarMovilSvg}
+            styleDiv={"top-16 relative sm:hidden opacity-80"}
+          />
+          <SvgToDiv
+            SvgComponent={iconBarSvg}
+            styleDiv={"top-14 relative hidden sm:block"}
+          />
           <ItemsBar
             handleSelectPoint={handleSelectPoint}
             perfilurl={usuarioUrl}
@@ -112,7 +123,7 @@ const MyMap = ({
       {selectPoint && !selectRecyPoint && (
         <div
           className={
-            "bg-white absolute shadow-2xl rounded-lg w-[350px] h-auto top-6 left-6 z-[10000]"
+            "bg-white absolute shadow-2xl rounded-lg sm:w-[350px] w-full h-auto top-0 sm:top-6 left-0 sm:left-6 z-[10000]"
           }
         >
           <CreatePointForm
@@ -128,6 +139,7 @@ const MyMap = ({
           <PointForm
             data={recyclingPoints}
             recyPointSelected={recyPointSelected}
+            handleSelectRecyPoint={handleSelectRecyPoint}   
           />
         </div>
       )}
