@@ -56,7 +56,7 @@ function PointForm({ data, recyPointSelected, handleSelectRecyPoint }) {
                   >
                     <SearchItem
                       type={"search"}
-                      text={"Buscar centros de reciclaje"}
+                      text={"Buscar centros de reciclaje ..."}
                       SvgComponent={UserSvg}
                       w={"sm:w-3/4 h-auto"}
                     />

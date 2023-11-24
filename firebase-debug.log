@@ -1,0 +1,35 @@
+[debug] [2023-11-24T14:23:23.367Z] ----------------------------------------------------------------------
+[debug] [2023-11-24T14:23:23.372Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\jenes\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-11-24T14:23:23.372Z] CLI Version:   12.9.1
+[debug] [2023-11-24T14:23:23.373Z] Platform:      win32
+[debug] [2023-11-24T14:23:23.373Z] Node Version:  v20.3.1
+[debug] [2023-11-24T14:23:23.374Z] Time:          Fri Nov 24 2023 09:23:23 GMT-0500 (Colombia Standard Time)
+[debug] [2023-11-24T14:23:23.374Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-11-24T14:23:23.378Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-11-24T14:23:23.570Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-11-24T14:23:23.571Z] > authorizing via signed-in user (jhon.aricapa@correounivalle.edu.co)
+[debug] [2023-11-24T14:23:23.571Z] [iam] checking project vivid-pen-403105 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-11-24T14:23:23.573Z] > refreshing access token with scopes: []
+[debug] [2023-11-24T14:23:23.574Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-11-24T14:23:23.575Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-11-24T14:23:29.807Z] *** [apiv2] error from fetch(https://www.googleapis.com/oauth2/v3/token, {"headers":{},"method":"POST","body":{"_overheadLength":545,"_valueLength":212,"_valuesToMeasure":[],"writable":false,"readable":true,"dataSize":0,"maxDataSize":2097152,"pauseStreams":true,"_released":true,"_streams":[],"_currentStream":null,"_insideLoop":false,"_pendingNext":false,"_boundary":"--------------------------089246112378220207140176","_events":{},"_eventsCount":1}}): FetchError: request to https://www.googleapis.com/oauth2/v3/token failed, reason: getaddrinfo ENOTFOUND www.googleapis.com
+[debug] [2023-11-24T14:23:29.808Z] [iam] error while checking permissions, command may fail: FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2023-11-24T14:23:29.809Z] > refreshing access token with scopes: []
+[debug] [2023-11-24T14:23:29.810Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-11-24T14:23:29.810Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-11-24T14:23:29.813Z] *** [apiv2] error from fetch(https://firebase-public.firebaseio.com/cli.json, {"headers":{},"method":"GET"}): FetchError: request to https://firebase-public.firebaseio.com/cli.json failed, reason: getaddrinfo ENOTFOUND firebase-public.firebaseio.com
+[warn] !  Unable to fetch the CLI MOTD and remote config. 
+[debug] [2023-11-24T14:23:29.816Z] Failed to fetch MOTD FirebaseError: Failed to make request to https://firebase-public.firebaseio.com/cli.json
+[debug] [2023-11-24T14:23:29.821Z] *** [apiv2] error from fetch(https://www.googleapis.com/oauth2/v3/token, {"headers":{},"method":"POST","body":{"_overheadLength":545,"_valueLength":212,"_valuesToMeasure":[],"writable":false,"readable":true,"dataSize":0,"maxDataSize":2097152,"pauseStreams":true,"_released":true,"_streams":[],"_currentStream":null,"_insideLoop":false,"_pendingNext":false,"_boundary":"--------------------------679471880053288689396995","_events":{},"_eventsCount":1}}): FetchError: request to https://www.googleapis.com/oauth2/v3/token failed, reason: getaddrinfo ENOTFOUND www.googleapis.com
+[debug] [2023-11-24T14:23:29.821Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2023-11-24T14:23:34.902Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\jenes\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:254:49)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[error] 
+[error] Error: An unexpected error has occurred.
