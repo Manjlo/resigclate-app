@@ -1,6 +1,6 @@
 import LinkToCreateAccount from "../atoms/LinkToCreateAccount";
 import LoginButton from "../atoms/LoginButton";
-import InfoItem from "../molecules/InfoItem";
+import InfoItem from "../atoms/InfoItem";
 import MainCard from "../templates/MainCard";
 import { useNavigate } from "react-router-dom";
 import { LOGIN_PATH } from "../router/routes";

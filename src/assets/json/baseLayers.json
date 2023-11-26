@@ -1,13 +1,13 @@
 [
   {
     "name": "CartoDB.Voyager",
-    "alias": "Cartografia Base",
+    "alias": "Base",
     "attribution": "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>",
     "url": "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
   },
   {
     "name": "Mapbox Navigation Night",
-    "alias": "Cartografia Nocturna",
+    "alias": "Nocturna",
     "attribution": "&copy; <a href='https://www.mapbox.com/about/maps/' target='_blank'>Mapbox</a> &copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors",
     "url": "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
     "id": "mapbox/navigation-night-v1",
@@ -15,7 +15,7 @@
   },
   {
     "name": "Mapbox Navigation Day",
-    "alias": "Cartografia Clara",
+    "alias": "Navegación",
     "attribution": "&copy; <a href='https://www.mapbox.com/about/maps/' target='_blank'>Mapbox</a> &copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors",
     "url": "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
     "id": "mapbox/navigation-day-v1",
@@ -23,7 +23,7 @@
   },
   {
     "name": "Mapbox Satellite",
-    "alias": "Cartografia Satelital",
+    "alias": "Satelite",
     "attribution": "&copy; <a href='https://www.mapbox.com/about/maps/' target='_blank'>Mapbox</a> &copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors",
     "url": "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
     "id": "mapbox/satellite-v9",

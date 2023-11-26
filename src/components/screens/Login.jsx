@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Loge from "../molecules/Loge";
+import Loge from "../atoms/Loge";
 import Loginform from "../organims/LoginForm";
 import MainCard from "../templates/MainCard";
 import { REGISTER_PATH } from "../router/routes";

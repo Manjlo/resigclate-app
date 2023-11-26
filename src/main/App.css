@@ -45,7 +45,7 @@
 
 .leaflet-control-layers.leaflet-control:hover {
   border: solid #228b22;
-  width: 150px !important;
+  width: 120px !important;
   padding: 4px;
   height: auto;
   display: flex;

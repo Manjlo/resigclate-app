@@ -1,7 +1,7 @@
 import { ReactComponent as UserSvg} from '../../assets/svg/usersvg.svg'
 import { ReactComponent as PasswordSvg} from '../../assets/svg/passwordsvg.svg'
 import { useNavigate } from 'react-router-dom';
-import InfoItem from "../molecules/InfoItem";
+import InfoItem from "../atoms/InfoItem";
 import LoginButton from '../atoms/LoginButton';
 import LinkToCreateAccount from '../atoms/LinkToCreateAccount';
 import { REGISTER_PATH } from '../router/routes';

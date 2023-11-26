@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Marker, useMap } from "react-leaflet";
 import L from "leaflet";
 import myIconUrl from "../../assets/icons/ongpslocation.png";
-import { center } from "../templates/TemplateGeo";
+import { center } from "../screens/Geoviewer";
 
 function LocationMarker() {
   const map = useMap();

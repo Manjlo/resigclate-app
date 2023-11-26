@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { TemplateGeo } from "../templates/TemplateGeo";
+import MyMap from "../templates/MyMap";
+import baseLayers from "../../assets/json/baseLayers.json";
+import "leaflet/dist/leaflet.css";
+
+const center = [3.4299852020536488, -76.54119092622952];
 
 function Geoviewer() {
   const [selectPoint, setSelectPoint] = useState(false);
   const [selectRecyPoint, setSelectRecyPoint] = useState(false);
   const [recyPointSelected, setRecyPointSelected] = useState(null);
-  const [changeIcon, setChangeIcon] = useState(null);
 
   const handleSelectPoint = () => {
     setSelectPoint(!selectPoint);
@@ -14,17 +17,21 @@ function Geoviewer() {
   const handleSelectRecyPoint = (point, icon) => {
     setSelectRecyPoint(!selectRecyPoint);
     setRecyPointSelected(point);
-    setChangeIcon(icon);
   };
 
   return (
     <div className="flex items-center justify-center h-screen">
       <section className="bg-white w-full h-full sm:w-[99%] sm:h-[98vh] sm:rounded-md [&>TemplateGeo]:sm:rounded-md sm:shadow-md">
-        <TemplateGeo
+        <MyMap
+          center={center}
+          zoom={13}
+          scrollWheelZoom={true}
+          baseLayers={baseLayers}
+          zoomControl={false}
           handleSelectPoint={handleSelectPoint}
           selectPoint={selectPoint}
-          selectRecyPoint={selectRecyPoint}
           handleSelectRecyPoint={handleSelectRecyPoint}
+          selectRecyPoint={selectRecyPoint}
           recyPointSelected={recyPointSelected}
         />
       </section>
@@ -32,4 +39,4 @@ function Geoviewer() {
   );
 }
 
-export default Geoviewer;
+export { Geoviewer, center };

@@ -20,7 +20,7 @@ function JsonLayers({ data, handleSelectRecyPoint }) {
       selectedMarker?.setIcon(myIcon);
       marker.setIcon(selectedIcon);
       selectedMarker = marker;
-      handleSelectRecyPoint(feature, selectedIcon);
+      handleSelectRecyPoint(feature);
     });
     return marker;
   };

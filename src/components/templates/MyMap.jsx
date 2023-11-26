@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import LayerSwitcher from "../molecules/LayerSwitcher";
-import MyCustomControl from "../organims/CustomControl";
-import SearchItem from "../molecules/SearchItem";
+import MyCustomControl from "../molecules/CustomControl.jsx";
 import Logo from "../../assets/icons/logo.png";
-import { ReactComponent as UserSvg } from "../../assets/svg/searchsvg.svg";
 import { ReactComponent as iconBarSvg } from "../../assets/svg/iconBars.svg";
 import { ReactComponent as iconBarMovilSvg } from "../../assets/svg/barMovil.svg";
 import LocationMarker from "../atoms/LocationMarker";
@@ -17,6 +15,7 @@ import { OpenStreetMapProvider } from "leaflet-geosearch";
 import { recyclingPoints } from "../../assets/json/recyclingPoints.js";
 import JsonLayers from "../atoms/JsonLayers.jsx";
 import PointForm from "../organims/PointForm.jsx";
+import SearchContainer from "../molecules/SearchContainer.jsx";
 
 const usuario = "javier";
 
@@ -48,20 +47,10 @@ const MyMap = ({
 
   return (
     <>
-      {!selectPoint && !selectRecyPoint && (
-        <div
-          className={
-            "absolute w-5/6 sm:w-[300px] lg:w-[400px] top-12 sm:top-8 ml-6 sm:left-1/3 left-2 h-auto bg-white  rounded-lg sm:rounded-md shadow-xl text-sm z-[1000] p-2 sm:p-0"
-          }
-        >
-          <SearchItem
-            type={"search"}
-            text={"Buscar centros de reciclaje"}
-            SvgComponent={UserSvg}
-            w={"sm:w-[88%] h-auto"}
-          />
-        </div>
-      )}
+      <SearchContainer
+        selectPoint={selectPoint}
+        selectRecyPoint={selectRecyPoint}
+      />
       <MapContainer
         className="sm:rounded-md"
         center={center}
@@ -77,11 +66,7 @@ const MyMap = ({
           handleSelectRecyPoint={handleSelectRecyPoint}
           data={recyclingPoints}
         />
-        <MyCustomControl
-          className={
-            "sm:grid sm:grid-rows-2 gap-2 sm:w-10 w-10 h-10 sm:h-24 bg-white shadow-md rounded-lg relative sm:top-[44px] top-[15vh] flex items-center justify-center right-3.5 sm:right-0"
-          }
-        >
+        <MyCustomControl className="sm:grid sm:grid-rows-2 gap-2 sm:w-10 w-10 h-10 sm:h-24 bg-white shadow-md rounded-lg relative sm:top-[44px] top-[15vh] flex items-center justify-center right-3.5 sm:right-0">
           <LocationMarker />
           <LayerSwitcher baseLayers={baseLayers} />
         </MyCustomControl>
@@ -90,18 +75,12 @@ const MyMap = ({
         )}
       </MapContainer>
       {!selectPoint && !selectRecyPoint && (
-        <div
-          className={
-            "w-8 h-8 sm:h-[70px] sm:w-[70px] absolute top-[60px] sm:top-4 right-12 sm:left-12 rounded-full shadow-sm z-[10000]"
-          }
-        >
+        <div className="w-8 h-8 sm:h-[70px] sm:w-[70px] absolute top-[60px] sm:top-4 right-12 sm:left-12 rounded-full shadow-sm z-[10000]">
           <img src={Logo} alt="Logo" />
         </div>
       )}
       {!selectPoint && !selectRecyPoint && (
-        <div
-          className={"w-auto absolute m-4 mb-4 sm:left-1/3 bottom-4 z-[1000]"}
-        >
+        <div className="w-auto absolute m-4 mb-4 sm:left-1/3 bottom-4 z-[1000]">
           <SvgToDiv
             SvgComponent={iconBarMovilSvg}
             styleDiv={"top-16 relative sm:hidden opacity-80"}
@@ -121,11 +100,7 @@ const MyMap = ({
         </div>
       )}
       {selectPoint && !selectRecyPoint && (
-        <div
-          className={
-            "bg-white absolute shadow-2xl rounded-none sm:rounded-lg sm:w-[350px] w-full h-auto top-0 sm:top-6 left-0 sm:left-6 z-[10000]"
-          }
-        >
+        <div className="bg-white absolute shadow-2xl rounded-none sm:rounded-lg sm:w-[350px] w-full h-auto top-0 sm:top-6 left-0 sm:left-6 z-[10000]">
           <CreatePointForm
             newAddress={address}
             setNewAddress={setAddress}

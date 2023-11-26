@@ -1,6 +1,6 @@
 import { useRef, useMemo, useState, useEffect } from "react";
 import { Marker, Popup } from "react-leaflet";
-import { center } from "../templates/TemplateGeo";
+import { center } from "../screens/Geoviewer";
 import icono from "../../assets/svg/MarkerPointSvg.svg";
 import L from "leaflet";
 
