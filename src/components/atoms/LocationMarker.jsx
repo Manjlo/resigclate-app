@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Marker, useMap } from "react-leaflet";
 import L from "leaflet";
-import myIconUrl from "../../assets/icons/ongpslocation.png";
+import { ReactComponent as Icono } from "../../assets/svg/gpsMarker.svg";
 import { center } from "../screens/Geoviewer";
+import ReactDOMServer from "react-dom/server";
 
 function LocationMarker() {
   const map = useMap();
@@ -17,9 +18,10 @@ function LocationMarker() {
 
   useEffect(locateUser, []);
 
-  const myIcon = L.icon({
-    iconUrl: myIconUrl,
+  const myIcon = L.divIcon({
+    html: ReactDOMServer.renderToString(<Icono />),
     iconSize: [25, 25],
+    className: "",
   });
 
   return (

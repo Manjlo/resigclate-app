@@ -3,12 +3,11 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import LayerSwitcher from "../molecules/LayerSwitcher";
 import MyCustomControl from "../molecules/CustomControl.jsx";
 import Logo from "../../assets/icons/logo.png";
-import { ReactComponent as iconBarSvg } from "../../assets/svg/iconBars.svg";
-import { ReactComponent as iconBarMovilSvg } from "../../assets/svg/barMovil.svg";
+import { ReactComponent as IconBarSvg } from "../../assets/svg/iconBars.svg";
+import { ReactComponent as IconBarMovilSvg } from "../../assets/svg/barMovil.svg";
 import LocationMarker from "../atoms/LocationMarker";
 import ItemsBar from "../molecules/ItemsBar";
 import usuarioUrl from "../../assets/icons/perfil.png";
-import SvgToDiv from "../atoms/SvgToDiv";
 import CreatePointForm from "../organims/CreatePointForm";
 import MarkerPoint from "../atoms/MarkerPoint.jsx";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
@@ -81,14 +80,12 @@ const MyMap = ({
       )}
       {!selectPoint && !selectRecyPoint && (
         <div className="w-auto absolute m-4 mb-4 sm:left-1/3 bottom-4 z-[1000]">
-          <SvgToDiv
-            SvgComponent={iconBarMovilSvg}
-            styleDiv={"top-16 relative sm:hidden opacity-80"}
-          />
-          <SvgToDiv
-            SvgComponent={iconBarSvg}
-            styleDiv={"top-14 relative hidden sm:block"}
-          />
+          <span className="top-16 relative sm:hidden opacity-80">
+            <IconBarMovilSvg />
+          </span>
+          <span className="top-14 relative hidden sm:block">
+            <IconBarSvg />
+          </span>
           <ItemsBar
             handleSelectPoint={handleSelectPoint}
             perfilurl={usuarioUrl}
@@ -100,7 +97,7 @@ const MyMap = ({
         </div>
       )}
       {selectPoint && !selectRecyPoint && (
-        <div className="bg-white absolute shadow-2xl rounded-none sm:rounded-lg sm:w-[350px] w-full h-auto top-0 sm:top-6 left-0 sm:left-6 z-[10000]">
+        <div className="pointform-animation bg-white absolute shadow-2xl rounded-none sm:rounded-lg sm:w-[350px] w-full h-auto top-0 sm:top-6 left-0 sm:left-6 z-[10000]">
           <CreatePointForm
             newAddress={address}
             setNewAddress={setAddress}
@@ -110,7 +107,7 @@ const MyMap = ({
         </div>
       )}
       {selectRecyPoint && (
-        <div className="bg-white absolute shadow-2xl rounded-none sm:rounded-lg w-auto h-auto top-0 sm:top-7 left-0 sm:left-28 z-[1000]">
+        <div className="recypoint-animation bg-white absolute shadow-2xl rounded-none sm:rounded-lg w-auto h-auto top-0 sm:top-7 left-0 sm:left-28 z-[1000]">
           <PointForm
             data={recyclingPoints}
             recyPointSelected={recyPointSelected}
@@ -120,11 +117,13 @@ const MyMap = ({
       )}
       {selectRecyPoint && (
         <ItemsBar
+          perfilurl={usuarioUrl}
+          usuario={usuario}
           styleMissing={
             "w-[80px] sm:h-[98vh] rounded-l-md absolute shadow-2xl top-1.5 2xl:top-[9.4px] bg-white z-[1000] flex flex-col justify-start items-center space-y-4 pt-16 shadow-[inset_0_2px_24px_rgba(0,0,0,0.45)] hidden sm:block"
           }
           setStyleIconButton={"hidden"}
-          imgStyleMissing={"absolute top-[84vh] ml-5"}
+          imgStyleMissing={"absolute top-[84vh] ml-0"}
         />
       )}
     </>

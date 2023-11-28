@@ -67,8 +67,67 @@
 }
 
 .gps-button {
-  background-image: url("../assets/svg/gps.svg");
+  background-image: url("../assets/svg/gpsMarker.svg");
   background-size: cover;
+  width: 30px;
+  height: 30px;
+}
+
+.pulse {
+  animation: gps 2s infinite;
+}
+
+@keyframes gps {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.5);
+    fill: #3f51b520;
+    transform: translateX(0.5px);
+    transform: translatey(-8px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+    fill: #3f51b580;
+    transform: translateX(0.5px);
+    transform: translatey(-8px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+    fill: #3f51b520;
+    transform: translateX(0.5px);
+    transform: translatey(-8px);
+  }
+}
+
+.recypoint-animation {
+  animation: openmodal 110ms ease both;
+}
+
+@keyframes openmodal {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 400px;
+  }
+}
+
+.pointform-animation {
+  animation: openmodal2 100ms ease-in-out both;
+}
+
+@keyframes openmodal2 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* article from PointForm component*/

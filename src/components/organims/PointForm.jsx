@@ -1,13 +1,12 @@
-import SvgToDiv from "../../components/atoms/SvgToDiv";
-import { ReactComponent as routeIcon } from "../../assets/svg/goToRoute.svg";
-import { ReactComponent as routeIconMovil } from "../../assets/svg/goToRouteMovil.svg";
-import { ReactComponent as materialIcon } from "../../assets/svg/materialRegister.svg";
-import { ReactComponent as addressIcon } from "../../assets/svg/adress.svg";
-import { ReactComponent as addressIconMovil } from "../../assets/svg/adressMovil.svg";
-import { ReactComponent as timeIcon } from "../../assets/svg/time.svg";
-import { ReactComponent as timeIconMovil } from "../../assets/svg/timeMovil.svg";
-import { ReactComponent as searchIcon } from "../../assets/svg/searchsvg.svg";
-import { ReactComponent as backIcon } from "../../assets/svg/backIcon.svg";
+import { ReactComponent as RouteIcon } from "../../assets/svg/goToRoute.svg";
+import { ReactComponent as RouteIconMovil } from "../../assets/svg/goToRouteMovil.svg";
+import { ReactComponent as MaterialIcon } from "../../assets/svg/materialRegister.svg";
+import { ReactComponent as AddressIcon } from "../../assets/svg/adress.svg";
+import { ReactComponent as AddressIconMovil } from "../../assets/svg/adressMovil.svg";
+import { ReactComponent as TimeIcon } from "../../assets/svg/time.svg";
+import { ReactComponent as TimeIconMovil } from "../../assets/svg/timeMovil.svg";
+import { ReactComponent as SearchIcon } from "../../assets/svg/searchsvg.svg";
+import { ReactComponent as BackIcon } from "../../assets/svg/backIcon.svg";
 import SearchItem from "../atoms/SearchItem";
 import { ReactComponent as UserSvg } from "../../assets/svg/searchsvg.svg";
 import { useState } from "react";
@@ -22,7 +21,7 @@ function PointForm({ data, recyPointSelected, handleSelectRecyPoint }) {
 
   return (
     <>
-      <article className="sm:w-[400px] w-[100vw] h-[100vh] rounded-lg sm:h-auto sm:mb-6 flex flex-col overflow-auto sm:max-h-[88vh] 2xl:max-h-[91vh]">
+      <article className="recypoint-animation scroll-smooth sm:w-[400px] w-[100vw] h-[100vh] rounded-lg sm:h-auto sm:mb-6 flex flex-col overflow-auto sm:max-h-[88vh] 2xl:max-h-[91vh]">
         {data.features.map((feature, index) => {
           return (
             <div key={index}>
@@ -30,10 +29,10 @@ function PointForm({ data, recyPointSelected, handleSelectRecyPoint }) {
                 recyPointSelected.properties.id === feature.properties.id && (
                   <div className="sm:hidden flex space-x-72 px-8 pt-10 items-center">
                     <span onClick={handleSelectRecyPoint}>
-                      <SvgToDiv SvgComponent={backIcon} />
+                      <BackIcon />
                     </span>
                     <span>
-                      <SvgToDiv SvgComponent={searchIcon} />
+                      <SearchIcon />
                     </span>
                   </div>
                 )}
@@ -58,11 +57,7 @@ function PointForm({ data, recyPointSelected, handleSelectRecyPoint }) {
               {recyPointSelected &&
                 recyPointSelected.properties.id === feature.properties.id && (
                   <>
-                    <div
-                      className={
-                        "absolute w-[350px] top-6 left-6 h-auto bg-white  rounded-md shadow-xl z-[1000] hidden sm:block"
-                      }
-                    >
+                    <div className="absolute w-[350px] top-6 left-6 h-auto bg-white  rounded-md shadow-xl z-[1000] hidden sm:block">
                       <SearchItem
                         type={"search"}
                         text={"Buscar centros de reciclaje ..."}
@@ -71,7 +66,7 @@ function PointForm({ data, recyPointSelected, handleSelectRecyPoint }) {
                       />
                       <div className="absolute top-3 right-2 rounded-sm h-4 w-6 flex items-center justify-center cursor-pointer">
                         <span onClick={handleSelectRecyPoint}>
-                          <SvgToDiv SvgComponent={backIcon} />
+                          <BackIcon />
                         </span>
                       </div>
                     </div>
@@ -112,25 +107,16 @@ function PointForm({ data, recyPointSelected, handleSelectRecyPoint }) {
                   <aside className=" flex items-center justify-start sm:grid sm:grid-cols-2 text-xs p-2 pr-8 sm:py-6 sm:border-b-2 sm:border-y-stone-400 xs:border-none py-1 pt-6 ml-10 sm:ml-0">
                     <aside className="flex ml-[-18px] sm:ml-2 items-center justify-center space-x-6 sm:space-x-2">
                       <span>
-                        <SvgToDiv
-                          styleDiv={"top-0 cursor-pointer hidden sm:block"}
-                          SvgComponent={routeIcon}
-                        />
+                        <RouteIcon className="hidden sm:block cursor-pointer" />
                       </span>
                       <span>
-                        <SvgToDiv
-                          styleDiv={"top-0 cursor-pointer sm:hidden"}
-                          SvgComponent={routeIconMovil}
-                        />
+                        <RouteIconMovil className="sm:hidden" />
                       </span>
                       <h4>Mira la ruta</h4>
                     </aside>
                     <aside className="sm:flex items-center justify-center space-x-4 hidden">
                       <span onClick={handleIsOpenModal}>
-                        <SvgToDiv
-                          styleDiv={"top-0 cursor-pointer"}
-                          SvgComponent={materialIcon}
-                        />
+                        <MaterialIcon className="cursor-pointer" />
                       </span>
                       <h4>Registra los materiales</h4>
                     </aside>
@@ -147,16 +133,10 @@ function PointForm({ data, recyPointSelected, handleSelectRecyPoint }) {
                   <aside className="grid grid-rows-2 items-center justify-left py-4 pl-10 px-8 space-y-4 sm:border-b-2 sm:border-y-stone-400 xs:border-none">
                     <aside className="flex items-center justify-left text-left text-xs space-x-3 pl-1 sm:pl-0">
                       <span>
-                        <SvgToDiv
-                          styleDiv={"top-0 cursor-pointer hidden sm:block"}
-                          SvgComponent={addressIcon}
-                        />
+                        <AddressIcon className="hidden sm:block" />
                       </span>
                       <span>
-                        <SvgToDiv
-                          styleDiv={"top-0 cursor-pointer sm:hidden"}
-                          SvgComponent={addressIconMovil}
-                        />
+                        <AddressIconMovil className="sm:hidden" />
                       </span>
                       <p className="pl-3 sm:pl-1">
                         {feature.properties.direccion}
@@ -164,16 +144,10 @@ function PointForm({ data, recyPointSelected, handleSelectRecyPoint }) {
                     </aside>
                     <aside className="flex items-center justify-left text-left text-xs space-x-4 pl-0 sm:pl-1">
                       <span>
-                        <SvgToDiv
-                          styleDiv={"top-0 cursor-pointer hidden sm:block"}
-                          SvgComponent={timeIcon}
-                        />
+                        <TimeIcon className="hidden sm:block" />
                       </span>
                       <span>
-                        <SvgToDiv
-                          styleDiv={"top-0 cursor-pointer sm:hidden"}
-                          SvgComponent={timeIconMovil}
-                        />
+                        <TimeIconMovil className="sm:hidden" />
                       </span>
                       <p className="pl-2 sm:pl-0">
                         {feature.properties.horario}
@@ -185,11 +159,12 @@ function PointForm({ data, recyPointSelected, handleSelectRecyPoint }) {
           );
         })}
       </article>
-      {isOpenModal && (
-        <section>
-          <RegisterMaterialsForm handleIsOpenModal={handleIsOpenModal} />
-        </section>
-      )}
+      <section>
+        <RegisterMaterialsForm
+          isOpenModal={isOpenModal}
+          handleIsOpenModal={handleIsOpenModal}
+        />
+      </section>
     </>
   );
 }
