@@ -9,4 +9,4 @@ function LinkToCreateAccount({ text, arrow, callback }) {
   );
 }
 
-export { LinkToCreateAccount };
+export default LinkToCreateAccount;

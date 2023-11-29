@@ -1,9 +1,5 @@
-function SvgToDiv({SvgComponent}){
-    return (
-        <div className="h-auto w-auto relative top-14">
-            {SvgComponent && <SvgComponent />}
-        </div>
-    )
-};
+function SvgToDiv({ SvgComponent, styleDiv }) {
+  return <div className={`h-auto w-auto ${styleDiv}`}>{SvgComponent && <SvgComponent />}</div>;
+}
 
-export { SvgToDiv };
+export default SvgToDiv;
