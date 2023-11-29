@@ -10,7 +10,7 @@ function RoutesTarget({
   inputValue,
   newAddress,
   setCoorOne,
-  setCoorTwo,
+  setCoorTwo
 }) {
   const provider = new OpenStreetMapProvider();
 
@@ -23,9 +23,7 @@ function RoutesTarget({
       const { x: lng, y: lat } = results[0];
       return [lat, lng];
     } else {
-      throw new Error(
-        `No se encontraron resultados para la dirección: ${address}`
-      );
+      throw new Error(`No se encontraron resultados para la dirección: ${address}`);
     }
   };
 

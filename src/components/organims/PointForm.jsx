@@ -20,7 +20,7 @@ function PointForm({
   inputValue,
   newAddress,
   setCoorOne,
-  setCoorTwo,
+  setCoorTwo
 }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isOpenRoutesTarget, setIsOpenRoutesTarget] = useState(false);
@@ -47,8 +47,7 @@ function PointForm({
     <>
       <article
         id="article-point-form"
-        className="recypoint-animation scroll-smooth sm:w-[400px] w-[100vw] h-[100vh] rounded-lg sm:h-auto sm:mb-6 flex flex-col overflow-auto sm:max-h-[88vh] 2xl:max-h-[91vh]"
-      >
+        className="recypoint-animation scroll-smooth sm:w-[400px] w-[100vw] h-[100vh] rounded-lg sm:h-auto sm:mb-6 flex flex-col overflow-auto sm:max-h-[88vh] 2xl:max-h-[91vh]">
         {data.features.map((feature, index) => {
           return (
             <div key={index}>
@@ -121,26 +120,25 @@ function PointForm({
         {data.features.map((feature, index) => {
           return (
             <div key={index}>
-              {recyPointSelected &&
-                recyPointSelected.properties.id === feature.properties.id && (
-                  <aside className=" flex items-center justify-start sm:grid sm:grid-cols-2 text-xs p-2 pr-8 sm:py-6 sm:border-b-2 sm:border-y-stone-400 xs:border-none py-1 pt-6 ml-10 sm:ml-0">
-                    <aside className="flex ml-[-18px] sm:ml-2 items-center justify-center space-x-6 sm:space-x-2">
-                      <span onClick={handleIsOpenRoutesTarget}>
-                        <RouteIcon className="hidden sm:block cursor-pointer" />
-                      </span>
-                      <span>
-                        <RouteIconMovil className="sm:hidden" />
-                      </span>
-                      <h4>Mira la ruta</h4>
-                    </aside>
-                    <aside className="sm:flex items-center justify-center space-x-4 hidden">
-                      <span onClick={handleIsOpenModal}>
-                        <MaterialIcon className="cursor-pointer" />
-                      </span>
-                      <h4>Registra los materiales</h4>
-                    </aside>
+              {recyPointSelected && recyPointSelected.properties.id === feature.properties.id && (
+                <aside className=" flex items-center justify-start sm:grid sm:grid-cols-2 text-xs p-2 pr-8 sm:py-6 sm:border-b-2 sm:border-y-stone-400 xs:border-none py-1 pt-6 ml-10 sm:ml-0">
+                  <aside className="flex ml-[-18px] sm:ml-2 items-center justify-center space-x-6 sm:space-x-2">
+                    <span onClick={handleIsOpenRoutesTarget}>
+                      <RouteIcon className="hidden sm:block cursor-pointer" />
+                    </span>
+                    <span>
+                      <RouteIconMovil className="sm:hidden" />
+                    </span>
+                    <h4>Mira la ruta</h4>
                   </aside>
-                )}
+                  <aside className="sm:flex items-center justify-center space-x-4 hidden">
+                    <span onClick={handleIsOpenModal}>
+                      <MaterialIcon className="cursor-pointer" />
+                    </span>
+                    <h4>Registra los materiales</h4>
+                  </aside>
+                </aside>
+              )}
             </div>
           );
         })}

@@ -72,18 +72,11 @@ const MyMap = ({
         center={center}
         zoom={zoom}
         scrollWheelZoom={scrollWheelZoom}
-        zoomControl={zoomControl}
-      >
+        zoomControl={zoomControl}>
         {coorOne && coorTwo && <Routing coorOne={coorOne} coorTwo={coorTwo} />}
         <ClickHandler onMapClick={handleMapClick} />
-        <TileLayer
-          attribution={baseLayers[0].attribution}
-          url={baseLayers[0].url}
-        />
-        <JsonLayers
-          handleSelectRecyPoint={handleSelectRecyPoint}
-          data={recyclingPoints}
-        />
+        <TileLayer attribution={baseLayers[0].attribution} url={baseLayers[0].url} />
+        <JsonLayers handleSelectRecyPoint={handleSelectRecyPoint} data={recyclingPoints} />
         <MyCustomControl className="sm:grid sm:grid-rows-2 gap-2 sm:w-10 w-10 h-10 sm:h-24 bg-white shadow-md rounded-lg relative sm:top-[44px] top-[15vh] flex items-center justify-center right-3.5 sm:right-0">
           <LocationMarker setInputValue={setInputValue} />
           <LayerSwitcher baseLayers={baseLayers} />

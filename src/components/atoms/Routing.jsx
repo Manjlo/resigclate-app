@@ -6,7 +6,7 @@ import { useEffect } from "react";
 function Routing({ coorOne, coorTwo }) {
   const map = useMap();
   const routingControl = L.Routing.control({
-    routeWhileDragging: true,
+    routeWhileDragging: true
   }).addTo(map);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function Routing({ coorOne, coorTwo }) {
 
     routingControl.setWaypoints([
       L.latLng(coorOne[0], coorOne[1]),
-      L.latLng(coorTwo[0], coorTwo[1]),
+      L.latLng(coorTwo[0], coorTwo[1])
     ]);
 
     return () => {
