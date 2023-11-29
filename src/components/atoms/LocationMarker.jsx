@@ -21,7 +21,7 @@ function LocationMarker() {
   const myIcon = L.divIcon({
     html: ReactDOMServer.renderToString(<Icono />),
     iconSize: [25, 25],
-    className: "",
+    className: ""
   });
 
   return (
