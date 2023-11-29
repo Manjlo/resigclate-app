@@ -2,12 +2,13 @@ import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Login from "../screens/Login";
 import Register from "../screens/Register";
-import{ Geoviewer } from "../screens/Geoviewer";
+import { Geoviewer } from "../screens/Geoviewer";
 import { PRINCIPAL_PATH, LOGIN_PATH, REGISTER_PATH, APP } from "./routes";
 import LoadingController from "../screens/loading/LoadingController";
 
 const RouteProtected = ({ children, redirectTo }) => {
-  return true ? children : <Navigate to={redirectTo} />;
+  const isTrue = true;
+  return isTrue ? children : <Navigate to={redirectTo} />;
 };
 
 function RouteHandler() {

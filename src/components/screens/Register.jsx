@@ -1,46 +1,34 @@
-import LinkToCreateAccount from "../atoms/LinkToCreateAccount";
-import LoginButton from "../atoms/LoginButton";
-import InfoItem from "../atoms/InfoItem";
+import React from "react";
 import MainCard from "../templates/MainCard";
 import { useNavigate } from "react-router-dom";
 import { LOGIN_PATH } from "../router/routes";
+import RegisterForm from "../organims/RegisterForm";
+import { useForm } from "react-hook-form";
 
 function Register() {
   const navigate = useNavigate();
   const callbackLogin = () => {
-    navigate(LOGIN_PATH)
-  }
+    navigate(LOGIN_PATH);
+  };
 
-  return(
-    <MainCard templateStyle={'w-auto'}>
-      <div className="flex flex-col w-full items-center pt-4 mt-4 mb-4">
-        <h2 className="text-lg sm:text-xl">Crea tu cuenta</h2>
-        <ul>
-          <li>
-            <InfoItem styleMissing={"sm:mr-6"} text={"Tu nombre"} />
-            <InfoItem
-              styleMissing={"sm:mr-6"}
-              type={"email"}
-              text={"Tu correo usuario"}
-            />
-            <InfoItem
-              styleMissing={"sm:mr-6"}
-              type={"password"}
-              text={"Tu contraseña"}
-            />
-            <InfoItem
-              styleMissing={"sm:mr-6"}
-              type={"tel"}
-              text={"+57 Tu celular"}
-            />
-          </li>
-        </ul>
-        <LoginButton buttonStyleMissing={'pl-14 pr-14 sm:mb-8 sm:mr-0'} textButton={'Crea tu cuenta'}/>
-        <div className='relative flex justify-start'>
-          <div className='absolute inset-0 border-t-2 border-[#37373e55] opacity-50 h-2'></div>
-          <LinkToCreateAccount arrow={'←'} text={'Iniciar sesion'} callback={callbackLogin}/>
-        </div>
-      </div>
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm();
+
+  const handleLogin = (data) => {
+    console.log(data);
+  };
+
+  return (
+    <MainCard templateStyle={"w-auto"}>
+      <RegisterForm
+        errors={errors}
+        handleSubmit={handleSubmit(handleLogin)}
+        register={register}
+        callbackLogin={callbackLogin}
+      />
     </MainCard>
   );
 }

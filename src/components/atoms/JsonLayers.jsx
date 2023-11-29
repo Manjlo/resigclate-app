@@ -5,11 +5,11 @@ import iconoSeleccionado from "../../assets/svg/selectedPoint.svg";
 
 function JsonLayers({ data, handleSelectRecyPoint }) {
   const myIcon = L.icon({
-    iconUrl: icono,
+    iconUrl: icono
   });
 
   const selectedIcon = L.icon({
-    iconUrl: iconoSeleccionado,
+    iconUrl: iconoSeleccionado
   });
 
   let selectedMarker = null;
