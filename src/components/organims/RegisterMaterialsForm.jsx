@@ -36,24 +36,24 @@ function RegisterMaterialsForm({ isOpenModal, handleIsOpenModal }) {
       </aside>
       <div className="text-sm p-2 px-10">
         <h4>Ingresa en el maletin los materiales reciclados</h4>
-        <div className="grid grid-cols-3 place-items-center gap-4 p-6">
-          <span className="cursor-pointer p-2 rounded-md shadow-md">
-            <Glass />
+        <div className="grid grid-cols-3 place-items-center gap-2 p-4">
+          <span className="cursor-pointer p-4 rounded-md shadow-md">
+            <Glass className=" scale-150" />
           </span>
-          <span className="cursor-pointer p-2 rounded-md shadow-md">
-            <Plastic />
+          <span className="cursor-pointer p-4 rounded-md shadow-md">
+            <Plastic className=" scale-150" />
           </span>
-          <span className="cursor-pointer p-2 rounded-md shadow-md">
-            <Iron />
+          <span className="cursor-pointer p-4 rounded-md shadow-md">
+            <Iron className=" scale-150" />
           </span>
-          <span className="cursor-pointer p-2 rounded-md shadow-md">
-            <Circuit />
+          <span className="cursor-pointer p-4 rounded-md shadow-md">
+            <Circuit className=" scale-150" />
           </span>
-          <span className="cursor-pointer p-2 rounded-md shadow-md">
-            <Paper />
+          <span className="cursor-pointer p-4 rounded-md shadow-md">
+            <Paper className=" scale-150" />
           </span>
-          <span className="cursor-pointer p-2 rounded-md shadow-md">
-            <Carton />
+          <span className="cursor-pointer p-4 rounded-md shadow-md">
+            <Carton className=" scale-150" />
           </span>
         </div>
         <div className="flex items-center justify-center p-4 shadow-md rounded-lg">

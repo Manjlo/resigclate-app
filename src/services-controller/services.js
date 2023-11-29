@@ -1,7 +1,6 @@
 import axios from "axios";
 import { getToken } from "../services-firebase/auth";
 
-
 const PATH_BASE = "http://localhost:5000/api";
 
 const configHeaders = async () => {

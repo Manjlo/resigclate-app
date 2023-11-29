@@ -16,13 +16,11 @@ function LocationMarker({ setInputValue }) {
       setPosition([e.latlng.lat, e.latlng.lng]);
 
       const provider = new OpenStreetMapProvider();
-      provider
-        .search({ query: `${e.latlng.lat},${e.latlng.lng}` })
-        .then((results) => {
-          const address = results[0].label;
+      provider.search({ query: `${e.latlng.lat},${e.latlng.lng}` }).then((results) => {
+        const address = results[0].label;
 
-          setInputValue(address);
-        });
+        setInputValue(address);
+      });
     });
   };
 

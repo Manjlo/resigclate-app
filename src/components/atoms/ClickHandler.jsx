@@ -2,7 +2,7 @@ import { useMapEvents } from "react-leaflet";
 
 function ClickHandler({ onMapClick }) {
   useMapEvents({
-    click: onMapClick,
+    click: onMapClick
   });
 
   return null;

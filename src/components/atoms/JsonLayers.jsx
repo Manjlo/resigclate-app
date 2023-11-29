@@ -1,11 +1,9 @@
-import { GeoJSON, useMap } from "react-leaflet";
+import { GeoJSON } from "react-leaflet";
 import L from "leaflet";
 import icono from "../../assets/svg/recyclingPointsMarker.svg";
 import iconoSeleccionado from "../../assets/svg/selectedPoint.svg";
-import { OpenStreetMapProvider } from "leaflet-geosearch";
-import { useState } from "react";
 
-function JsonLayers({ data, handleSelectRecyPoint, setRecypointValue }) {
+function JsonLayers({ data, handleSelectRecyPoint }) {
   const myIcon = L.icon({
     iconUrl: icono
   });

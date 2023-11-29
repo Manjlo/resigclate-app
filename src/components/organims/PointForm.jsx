@@ -184,16 +184,6 @@ function PointForm({
           setCoorTwo={setCoorTwo}
         />
       </section>
-      <section>
-        <RoutesTarget
-          isOpenRoutesTarget={isOpenRoutesTarget}
-          handleReturnVisibility={handleReturnVisibility}
-          inputValue={inputValue}
-          newAddress={newAddress}
-          setCoorOne={setCoorOne}
-          setCoorTwo={setCoorTwo}
-        />
-      </section>
     </>
   );
 }
