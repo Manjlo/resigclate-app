@@ -19,7 +19,7 @@ function LocationMarker() {
 
   const myIcon = L.icon({
     iconUrl: myIconUrl,
-    iconSize: [25, 25],
+    iconSize: [25, 25]
   });
 
   return (

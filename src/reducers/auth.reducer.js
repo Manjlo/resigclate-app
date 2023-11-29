@@ -1,10 +1,9 @@
-const SET_USER = 'set_user';
-const LOGOUT = 'logout';
+const SET_USER = "set_user";
+const LOGOUT = "logout";
 
 const initialState = {
   user: null
 };
-
 
 export default function authReducer(state = initialState, action) {
   switch (action.type) {

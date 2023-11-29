@@ -1,4 +1,3 @@
-
 const firebaseConfig = {
   apiKey: "AIzaSyAG0J0IQOWJyzyhtRSxKBxmw-ULo6ocUtg",
   authDomain: "vivid-pen-403105.firebaseapp.com",

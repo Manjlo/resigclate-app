@@ -2,12 +2,7 @@ import Logo from "../../assets/icons/logo.png";
 import ComponentButton from "../atoms/ComponentButton";
 import React from "react";
 
-function CreatePointForm({
-  newAddress,
-  setNewAddress,
-  handleSubmit,
-  handleSelectPoint,
-}) {
+function CreatePointForm({ newAddress, setNewAddress, handleSubmit, handleSelectPoint }) {
   const handleAddrressChange = (event) => {
     setNewAddress(event.target.value);
   };
@@ -15,17 +10,18 @@ function CreatePointForm({
   return (
     <article className="w-full bg-transparent flex flex-col h-auto sm:pt-0 pt-4">
       <div className="flex justify-between m-4 mr-6 ml-6 h-6">
-        <span onClick={handleSelectPoint} className="cursor-pointer hover:text-[#228b22] flex items-center justify-center text-xl">
+        <span
+          onClick={handleSelectPoint}
+          className="cursor-pointer hover:text-[#228b22] flex items-center justify-center text-xl">
           ←
         </span>
         <img className="w-[25px] h-[25px]" src={Logo} alt="Logo" />
       </div>
       <div className="p-2 mr-4 ml-4 pr-4 pl-4 shadow-md rounded-md text-xs">
         <p>
-          Contribuye con tu aporte para que un profesional pueda llevar a cabo
-          la práctica del reciclaje. Tu participación es esencial en este
-          proceso y puede marcar una gran diferencia en nuestros esfuerzos por
-          mantener un medio ambiente saludable. ¡Tu contribución importa!
+          Contribuye con tu aporte para que un profesional pueda llevar a cabo la práctica del
+          reciclaje. Tu participación es esencial en este proceso y puede marcar una gran diferencia
+          en nuestros esfuerzos por mantener un medio ambiente saludable. ¡Tu contribución importa!
         </p>
       </div>
       <div className="mr-4 ml-4 mt-4 h-auto text-sm">

@@ -29,7 +29,7 @@ const MyMap = ({
   handleSelectPoint,
   handleSelectRecyPoint,
   selectRecyPoint,
-  recyPointSelected,
+  recyPointSelected
 }) => {
   const [address, setAddress] = useState("");
 
@@ -47,32 +47,20 @@ const MyMap = ({
 
   return (
     <>
-      <SearchContainer
-        selectPoint={selectPoint}
-        selectRecyPoint={selectRecyPoint}
-      />
+      <SearchContainer selectPoint={selectPoint} selectRecyPoint={selectRecyPoint} />
       <MapContainer
         className="sm:rounded-md"
         center={center}
         zoom={zoom}
         scrollWheelZoom={scrollWheelZoom}
-        zoomControl={zoomControl}
-      >
-        <TileLayer
-          attribution={baseLayers[0].attribution}
-          url={baseLayers[0].url}
-        />
-        <JsonLayers
-          handleSelectRecyPoint={handleSelectRecyPoint}
-          data={recyclingPoints}
-        />
+        zoomControl={zoomControl}>
+        <TileLayer attribution={baseLayers[0].attribution} url={baseLayers[0].url} />
+        <JsonLayers handleSelectRecyPoint={handleSelectRecyPoint} data={recyclingPoints} />
         <MyCustomControl className="sm:grid sm:grid-rows-2 gap-2 sm:w-10 w-10 h-10 sm:h-24 bg-white shadow-md rounded-lg relative sm:top-[44px] top-[15vh] flex items-center justify-center right-3.5 sm:right-0">
           <LocationMarker />
           <LayerSwitcher baseLayers={baseLayers} />
         </MyCustomControl>
-        {selectPoint && !selectRecyPoint && (
-          <MarkerPoint setAddress={setAddress} />
-        )}
+        {selectPoint && !selectRecyPoint && <MarkerPoint setAddress={setAddress} />}
       </MapContainer>
       {!selectPoint && !selectRecyPoint && (
         <div className="w-8 h-8 sm:h-[70px] sm:w-[70px] absolute top-[60px] sm:top-4 right-12 sm:left-12 rounded-full shadow-sm z-[10000]">
@@ -85,17 +73,12 @@ const MyMap = ({
             SvgComponent={iconBarMovilSvg}
             styleDiv={"top-16 relative sm:hidden opacity-80"}
           />
-          <SvgToDiv
-            SvgComponent={iconBarSvg}
-            styleDiv={"top-14 relative hidden sm:block"}
-          />
+          <SvgToDiv SvgComponent={iconBarSvg} styleDiv={"top-14 relative hidden sm:block"} />
           <ItemsBar
             handleSelectPoint={handleSelectPoint}
             perfilurl={usuarioUrl}
             usuario={usuario}
-            styleMissing={
-              "grid grid-cols-5 h-auto relative items-center justify-center"
-            }
+            styleMissing={"grid grid-cols-5 h-auto relative items-center justify-center"}
           />
         </div>
       )}

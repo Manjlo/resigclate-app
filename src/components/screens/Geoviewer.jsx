@@ -14,7 +14,7 @@ function Geoviewer() {
     setSelectPoint(!selectPoint);
   };
 
-  const handleSelectRecyPoint = (point, icon) => {
+  const handleSelectRecyPoint = (point) => {
     setSelectRecyPoint(!selectRecyPoint);
     setRecyPointSelected(point);
   };
