@@ -10,7 +10,7 @@ const CustomControl = L.Control.extend({
   onAdd: function () {
     this._div = L.DomUtil.create("div", this.options.className);
     return this._div;
-  },
+  }
 });
 
 const MyCustomControl = ({ children, className }) => {

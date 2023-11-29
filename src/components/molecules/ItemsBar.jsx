@@ -10,7 +10,7 @@ function ItemsBar({
   handleSelectPoint,
   styleMissing,
   setStyleIconButton,
-  imgStyleMissing,
+  imgStyleMissing
 }) {
   return (
     <div className={styleMissing}>
@@ -30,8 +30,7 @@ function ItemsBar({
       </div>
       <div className="w-[50px] sm:w-auto h-[50px] sm:h-auto bg-white sm:bg-transparent shadow-md sm:shadow-none rounded-xl flex items-center justify-center">
         <div
-          className={`rounded-full w-auto h-auto flex items-center justify-center ${imgStyleMissing}`}
-        >
+          className={`rounded-full w-auto h-auto flex items-center justify-center ${imgStyleMissing}`}>
           <img
             className="w-[35px] h-[35px] border border-black rounded-full"
             src={perfilurl}

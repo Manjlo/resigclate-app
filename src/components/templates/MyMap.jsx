@@ -32,7 +32,7 @@ const MyMap = ({
   handleSelectPoint,
   handleSelectRecyPoint,
   selectRecyPoint,
-  recyPointSelected,
+  recyPointSelected
 }) => {
   const [address, setAddress] = useState("");
   const [inputValue, setInputValue] = useState("");
@@ -66,10 +66,7 @@ const MyMap = ({
 
   return (
     <>
-      <SearchContainer
-        selectPoint={selectPoint}
-        selectRecyPoint={selectRecyPoint}
-      />
+      <SearchContainer selectPoint={selectPoint} selectRecyPoint={selectRecyPoint} />
       <MapContainer
         className="sm:rounded-md"
         center={center}
@@ -91,9 +88,7 @@ const MyMap = ({
           <LocationMarker setInputValue={setInputValue} />
           <LayerSwitcher baseLayers={baseLayers} />
         </MyCustomControl>
-        {selectPoint && !selectRecyPoint && (
-          <MarkerPoint setAddress={setAddress} />
-        )}
+        {selectPoint && !selectRecyPoint && <MarkerPoint setAddress={setAddress} />}
       </MapContainer>
       {!selectPoint && !selectRecyPoint && (
         <div className="w-8 h-8 sm:h-[70px] sm:w-[70px] absolute top-[60px] sm:top-4 right-12 sm:left-12 rounded-full shadow-sm z-[10000]">
@@ -112,9 +107,7 @@ const MyMap = ({
             handleSelectPoint={handleSelectPoint}
             perfilurl={usuarioUrl}
             usuario={usuario}
-            styleMissing={
-              "grid grid-cols-5 h-auto relative items-center justify-center"
-            }
+            styleMissing={"grid grid-cols-5 h-auto relative items-center justify-center"}
           />
         </div>
       )}

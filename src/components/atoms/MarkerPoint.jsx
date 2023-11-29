@@ -12,7 +12,7 @@ function MarkerPoint({ setAddress }) {
     navigator.geolocation.getCurrentPosition((position) => {
       setLastPosition({
         lat: position.coords.latitude,
-        lng: position.coords.longitude,
+        lng: position.coords.longitude
       });
     });
   }, []);
@@ -28,11 +28,11 @@ function MarkerPoint({ setAddress }) {
         const newPosition = marker.getLatLng();
         setLastPosition(newPosition);
       }
-    },
+    }
   }));
 
   const MarkerIcon = new L.icon({
-    iconUrl: icono,
+    iconUrl: icono
   });
 
   return lastPosition ? (
@@ -41,13 +41,10 @@ function MarkerPoint({ setAddress }) {
       eventHandlers={evenHandlers}
       position={lastPosition}
       ref={markerRef}
-      icon={MarkerIcon}
-    >
+      icon={MarkerIcon}>
       <Popup>
         {lastPosition && lastPosition.lat && lastPosition.lng
-          ? `Latitud: ${lastPosition.lat.toFixed(
-              6
-            )}, Longitud: ${lastPosition.lng.toFixed(6)}`
+          ? `Latitud: ${lastPosition.lat.toFixed(6)}, Longitud: ${lastPosition.lng.toFixed(6)}`
           : "Ubicación no disponible"}
         , arrastra el personaje hacia otra <strong>ubicacion deseada</strong>
       </Popup>

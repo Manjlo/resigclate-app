@@ -7,11 +7,11 @@ import { useState } from "react";
 
 function JsonLayers({ data, handleSelectRecyPoint, setRecypointValue }) {
   const myIcon = L.icon({
-    iconUrl: icono,
+    iconUrl: icono
   });
 
   const selectedIcon = L.icon({
-    iconUrl: iconoSeleccionado,
+    iconUrl: iconoSeleccionado
   });
 
   let selectedMarker = null;
