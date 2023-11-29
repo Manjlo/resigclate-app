@@ -1,10 +1,7 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from "react";
 
 const AppView = () => {
-  return (
-    <div>AppView</div>
-  )
-}
+  return <div>AppView</div>;
+};
 
-export default AppView
+export default AppView;
