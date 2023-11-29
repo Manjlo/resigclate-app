@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { OpenStreetMapProvider } from "leaflet-geosearch";
 import { MapContainer, TileLayer } from "react-leaflet";
+import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
+import "leaflet-routing-machine";
 import LayerSwitcher from "../molecules/LayerSwitcher";
 import MyCustomControl from "../molecules/CustomControl.jsx";
 import Logo from "../../assets/icons/logo.png";
@@ -10,11 +13,12 @@ import ItemsBar from "../molecules/ItemsBar";
 import usuarioUrl from "../../assets/icons/perfil.png";
 import CreatePointForm from "../organims/CreatePointForm";
 import MarkerPoint from "../atoms/MarkerPoint.jsx";
-import { OpenStreetMapProvider } from "leaflet-geosearch";
 import { recyclingPoints } from "../../assets/json/recyclingPoints.js";
 import JsonLayers from "../atoms/JsonLayers.jsx";
 import PointForm from "../organims/PointForm.jsx";
 import SearchContainer from "../molecules/SearchContainer.jsx";
+import ClickHandler from "../atoms/ClickHandler.jsx";
+import Routing from "../atoms/Routing.jsx";
 
 const usuario = "javier";
 
@@ -31,6 +35,10 @@ const MyMap = ({
   recyPointSelected,
 }) => {
   const [address, setAddress] = useState("");
+  const [inputValue, setInputValue] = useState("");
+  const [newAddress, setNewAddress] = useState("");
+  const [coorOne, setCoorOne] = useState(null);
+  const [coorTwo, setCoorTwo] = useState(null);
 
   const updatePosition = ({ lat, lng }) => {
     const provider = new OpenStreetMapProvider();
@@ -42,6 +50,18 @@ const MyMap = ({
 
   const handleSubmit = () => {
     updatePosition(address);
+  };
+
+  const geocodeAddress = (lat, lng) => {
+    const provider = new OpenStreetMapProvider();
+    provider.search({ query: `${lat},${lng}` }).then((results) => {
+      const thisAddress = results[0]?.label || "";
+      setNewAddress(thisAddress);
+    });
+  };
+
+  const handleMapClick = (e) => {
+    geocodeAddress(e.latlng.lat, e.latlng.lng);
   };
 
   return (
@@ -57,6 +77,8 @@ const MyMap = ({
         scrollWheelZoom={scrollWheelZoom}
         zoomControl={zoomControl}
       >
+        {coorOne && coorTwo && <Routing coorOne={coorOne} coorTwo={coorTwo} />}
+        <ClickHandler onMapClick={handleMapClick} />
         <TileLayer
           attribution={baseLayers[0].attribution}
           url={baseLayers[0].url}
@@ -66,7 +88,7 @@ const MyMap = ({
           data={recyclingPoints}
         />
         <MyCustomControl className="sm:grid sm:grid-rows-2 gap-2 sm:w-10 w-10 h-10 sm:h-24 bg-white shadow-md rounded-lg relative sm:top-[44px] top-[15vh] flex items-center justify-center right-3.5 sm:right-0">
-          <LocationMarker />
+          <LocationMarker setInputValue={setInputValue} />
           <LayerSwitcher baseLayers={baseLayers} />
         </MyCustomControl>
         {selectPoint && !selectRecyPoint && (
@@ -112,6 +134,10 @@ const MyMap = ({
             data={recyclingPoints}
             recyPointSelected={recyPointSelected}
             handleSelectRecyPoint={handleSelectRecyPoint}
+            inputValue={inputValue}
+            newAddress={newAddress}
+            setCoorOne={setCoorOne}
+            setCoorTwo={setCoorTwo}
           />
         </div>
       )}
@@ -120,7 +146,7 @@ const MyMap = ({
           perfilurl={usuarioUrl}
           usuario={usuario}
           styleMissing={
-            "w-[80px] sm:h-[98vh] rounded-l-md absolute shadow-2xl top-1.5 2xl:top-[9.4px] bg-white z-[1000] flex flex-col justify-start items-center space-y-4 pt-16 shadow-[inset_0_2px_24px_rgba(0,0,0,0.45)] hidden sm:block"
+            "w-[80px] sm:h-[98vh] rounded-l-md absolute shadow-2xl top-1.5 2xl:top-[9.4px] bg-white z-[1000] flex flex-col justify-start items-center space-y-4 pt-16 shadow-[inset_0_2px_24px_rgba(0,0,0,0.15)] hidden sm:block"
           }
           setStyleIconButton={"hidden"}
           imgStyleMissing={"absolute top-[84vh] ml-0"}

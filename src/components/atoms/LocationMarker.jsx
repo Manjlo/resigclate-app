@@ -4,8 +4,9 @@ import L from "leaflet";
 import { ReactComponent as Icono } from "../../assets/svg/gpsMarker.svg";
 import { center } from "../screens/Geoviewer";
 import ReactDOMServer from "react-dom/server";
+import { OpenStreetMapProvider } from "leaflet-geosearch";
 
-function LocationMarker() {
+function LocationMarker({ setInputValue }) {
   const map = useMap();
   const [position, setPosition] = useState(center);
 
@@ -13,6 +14,15 @@ function LocationMarker() {
     map.locate().on("locationfound", function (e) {
       map.flyTo(e.latlng, map.getZoom());
       setPosition([e.latlng.lat, e.latlng.lng]);
+
+      const provider = new OpenStreetMapProvider();
+      provider
+        .search({ query: `${e.latlng.lat},${e.latlng.lng}` })
+        .then((results) => {
+          const address = results[0].label;
+
+          setInputValue(address);
+        });
     });
   };
 

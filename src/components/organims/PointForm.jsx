@@ -11,17 +11,44 @@ import SearchItem from "../atoms/SearchItem";
 import { ReactComponent as UserSvg } from "../../assets/svg/searchsvg.svg";
 import { useState } from "react";
 import RegisterMaterialsForm from "./RegisterMaterialsForm";
+import RoutesTarget from "./RoutesTarget";
 
-function PointForm({ data, recyPointSelected, handleSelectRecyPoint }) {
+function PointForm({
+  data,
+  recyPointSelected,
+  handleSelectRecyPoint,
+  inputValue,
+  newAddress,
+  setCoorOne,
+  setCoorTwo,
+}) {
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isOpenRoutesTarget, setIsOpenRoutesTarget] = useState(false);
 
   const handleIsOpenModal = () => {
     setIsOpenModal(!isOpenModal);
   };
 
+  const handleIsOpenRoutesTarget = () => {
+    setIsOpenRoutesTarget(!isOpenRoutesTarget);
+    const hiddenDiv = document.getElementById("article-point-form");
+    hiddenDiv.style.display = "none";
+    return hiddenDiv;
+  };
+
+  const handleReturnVisibility = () => {
+    setIsOpenRoutesTarget(!isOpenRoutesTarget);
+    const hiddenDiv = document.getElementById("article-point-form");
+    hiddenDiv.style.display = "block";
+    return hiddenDiv;
+  };
+
   return (
     <>
-      <article className="recypoint-animation scroll-smooth sm:w-[400px] w-[100vw] h-[100vh] rounded-lg sm:h-auto sm:mb-6 flex flex-col overflow-auto sm:max-h-[88vh] 2xl:max-h-[91vh]">
+      <article
+        id="article-point-form"
+        className="recypoint-animation scroll-smooth sm:w-[400px] w-[100vw] h-[100vh] rounded-lg sm:h-auto sm:mb-6 flex flex-col overflow-auto sm:max-h-[88vh] 2xl:max-h-[91vh]"
+      >
         {data.features.map((feature, index) => {
           return (
             <div key={index}>
@@ -106,7 +133,7 @@ function PointForm({ data, recyPointSelected, handleSelectRecyPoint }) {
                 recyPointSelected.properties.id === feature.properties.id && (
                   <aside className=" flex items-center justify-start sm:grid sm:grid-cols-2 text-xs p-2 pr-8 sm:py-6 sm:border-b-2 sm:border-y-stone-400 xs:border-none py-1 pt-6 ml-10 sm:ml-0">
                     <aside className="flex ml-[-18px] sm:ml-2 items-center justify-center space-x-6 sm:space-x-2">
-                      <span>
+                      <span onClick={handleIsOpenRoutesTarget}>
                         <RouteIcon className="hidden sm:block cursor-pointer" />
                       </span>
                       <span>
@@ -163,6 +190,16 @@ function PointForm({ data, recyPointSelected, handleSelectRecyPoint }) {
         <RegisterMaterialsForm
           isOpenModal={isOpenModal}
           handleIsOpenModal={handleIsOpenModal}
+        />
+      </section>
+      <section>
+        <RoutesTarget
+          isOpenRoutesTarget={isOpenRoutesTarget}
+          handleReturnVisibility={handleReturnVisibility}
+          inputValue={inputValue}
+          newAddress={newAddress}
+          setCoorOne={setCoorOne}
+          setCoorTwo={setCoorTwo}
         />
       </section>
     </>
