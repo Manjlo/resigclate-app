@@ -11,6 +11,29 @@
   height: 100%;
 }
 
+.leaflet-routing-container {
+  font-family: -apple-system, BlinkMacSystemFont, "lora-regular", "lora-bold", "lora-italic",
+    "lora-bolditalic", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0 !important;
+  position: absolute !important;
+  left: -330px;
+  top: 180px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 10px;
+  border: none !important;
+  padding: 10px;
+  font-size: smaller;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+}
+
+.leaflet-routing-alt {
+  width: 320px;
+}
+
 /* Estilos para pantallas más pequeñas que sm, para esta cuestion especifica es mejor media query que sm en tailwind */
 @media (max-width: 640px) {
   .leaflet-control-attribution {
@@ -129,6 +152,10 @@
   100% {
     opacity: 1;
   }
+}
+
+.custom-icon {
+  display: none;
 }
 
 /* article from PointForm component*/

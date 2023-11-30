@@ -1,12 +1,25 @@
-// En tu componente Routing
 import { useMap } from "react-leaflet";
 import L from "leaflet";
 import { useEffect } from "react";
+import icono from "../../assets/icons/logo.png";
 
 function Routing({ coorOne, coorTwo }) {
   const map = useMap();
+
+  const customIcon = L.icon({
+    iconUrl: icono,
+    iconSize: [5, 5],
+    className: "custom-icon"
+  });
+
   const routingControl = L.Routing.control({
-    routeWhileDragging: true
+    routeWhileDragging: true,
+    lineOptions: {
+      styles: [{ color: "#0074b7", opacity: 0.8, weight: 5 }]
+    },
+    createMarker: function (i, wp) {
+      return L.marker(wp.latLng, { icon: customIcon });
+    }
   }).addTo(map);
 
   useEffect(() => {

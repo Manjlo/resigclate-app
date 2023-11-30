@@ -17,7 +17,6 @@ import { recyclingPoints } from "../../assets/json/recyclingPoints.js";
 import JsonLayers from "../atoms/JsonLayers.jsx";
 import PointForm from "../organims/PointForm.jsx";
 import SearchContainer from "../molecules/SearchContainer.jsx";
-import ClickHandler from "../atoms/ClickHandler.jsx";
 import Routing from "../atoms/Routing.jsx";
 
 const usuario = "javier";
@@ -60,8 +59,8 @@ const MyMap = ({
     });
   };
 
-  const handleMapClick = (e) => {
-    geocodeAddress(e.latlng.lat, e.latlng.lng);
+  const handleClick = (coorTwo) => {
+    geocodeAddress(coorTwo.latlng.lat, coorTwo.latlng.lng);
   };
 
   return (
@@ -74,9 +73,13 @@ const MyMap = ({
         scrollWheelZoom={scrollWheelZoom}
         zoomControl={zoomControl}>
         {coorOne && coorTwo && <Routing coorOne={coorOne} coorTwo={coorTwo} />}
-        <ClickHandler onMapClick={handleMapClick} />
         <TileLayer attribution={baseLayers[0].attribution} url={baseLayers[0].url} />
-        <JsonLayers handleSelectRecyPoint={handleSelectRecyPoint} data={recyclingPoints} />
+        <JsonLayers
+          setCoorTwo={setCoorTwo}
+          handleSelectRecyPoint={handleSelectRecyPoint}
+          data={recyclingPoints}
+          handleClick={handleClick}
+        />
         <MyCustomControl className="sm:grid sm:grid-rows-2 gap-2 sm:w-10 w-10 h-10 sm:h-24 bg-white shadow-md rounded-lg relative sm:top-[44px] top-[15vh] flex items-center justify-center right-3.5 sm:right-0">
           <LocationMarker setInputValue={setInputValue} />
           <LayerSwitcher baseLayers={baseLayers} />

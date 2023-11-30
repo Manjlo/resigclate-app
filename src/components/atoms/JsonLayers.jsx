@@ -3,7 +3,7 @@ import L from "leaflet";
 import icono from "../../assets/svg/recyclingPointsMarker.svg";
 import iconoSeleccionado from "../../assets/svg/selectedPoint.svg";
 
-function JsonLayers({ data, handleSelectRecyPoint }) {
+function JsonLayers({ data, handleSelectRecyPoint, setCoorTwo, handleClick }) {
   const myIcon = L.icon({
     iconUrl: icono
   });
@@ -13,6 +13,7 @@ function JsonLayers({ data, handleSelectRecyPoint }) {
   });
 
   let selectedMarker = null;
+  let markerObject = [];
 
   const pointToLayer = (feature, latlng) => {
     const marker = L.marker(latlng, { icon: myIcon });
@@ -20,6 +21,11 @@ function JsonLayers({ data, handleSelectRecyPoint }) {
       selectedMarker?.setIcon(myIcon);
       marker.setIcon(selectedIcon);
       selectedMarker = marker;
+      markerObject = {
+        latlng: { lat: selectedMarker.getLatLng().lat, lng: selectedMarker.getLatLng().lng }
+      };
+      setCoorTwo(markerObject);
+      handleClick(markerObject);
       handleSelectRecyPoint(feature);
     });
     return marker;
