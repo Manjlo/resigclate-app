@@ -38,6 +38,7 @@ const MyMap = ({
   const [newAddress, setNewAddress] = useState("");
   const [coorOne, setCoorOne] = useState(null);
   const [coorTwo, setCoorTwo] = useState(null);
+  const [routeView, setRouteView] = useState(false);
 
   const updatePosition = ({ lat, lng }) => {
     const provider = new OpenStreetMapProvider();
@@ -63,6 +64,10 @@ const MyMap = ({
     geocodeAddress(coorTwo.latlng.lat, coorTwo.latlng.lng);
   };
 
+  const handleRouteView = () => {
+    setRouteView(!routeView);
+  };
+
   return (
     <>
       <SearchContainer selectPoint={selectPoint} selectRecyPoint={selectRecyPoint} />
@@ -72,7 +77,7 @@ const MyMap = ({
         zoom={zoom}
         scrollWheelZoom={scrollWheelZoom}
         zoomControl={zoomControl}>
-        {coorOne && coorTwo && <Routing coorOne={coorOne} coorTwo={coorTwo} />}
+        {coorOne && coorTwo && routeView && <Routing coorOne={coorOne} coorTwo={coorTwo} />}
         <TileLayer attribution={baseLayers[0].attribution} url={baseLayers[0].url} />
         <JsonLayers
           setCoorTwo={setCoorTwo}
@@ -127,6 +132,7 @@ const MyMap = ({
             newAddress={newAddress}
             setCoorOne={setCoorOne}
             setCoorTwo={setCoorTwo}
+            handleRouteView={handleRouteView}
           />
         </div>
       )}

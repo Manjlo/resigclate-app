@@ -20,7 +20,8 @@ function PointForm({
   inputValue,
   newAddress,
   setCoorOne,
-  setCoorTwo
+  setCoorTwo,
+  handleRouteView
 }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isOpenRoutesTarget, setIsOpenRoutesTarget] = useState(false);
@@ -30,6 +31,7 @@ function PointForm({
   };
 
   const handleIsOpenRoutesTarget = () => {
+    handleRouteView();
     setIsOpenRoutesTarget(!isOpenRoutesTarget);
     const hiddenDiv = document.getElementById("article-point-form");
     hiddenDiv.style.display = "none";
@@ -37,6 +39,7 @@ function PointForm({
   };
 
   const handleReturnVisibility = () => {
+    handleRouteView();
     setIsOpenRoutesTarget(!isOpenRoutesTarget);
     const hiddenDiv = document.getElementById("article-point-form");
     hiddenDiv.style.display = "block";
