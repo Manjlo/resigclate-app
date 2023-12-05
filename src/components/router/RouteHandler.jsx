@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Login from "../screens/Login";
 import Register from "../screens/Register";
 import { Geoviewer } from "../screens/Geoviewer";
-import { PRINCIPAL_PATH, LOGIN_PATH, REGISTER_PATH, APP } from "./routes";
+import { PRINCIPAL_PATH, LOGIN_PATH, REGISTER_PATH, APP_PATH } from "./routes";
 import LoadingController from "../screens/loading/LoadingController";
 
 const RouteProtected = ({ children, redirectTo }) => {
@@ -17,7 +17,7 @@ function RouteHandler() {
       <Route path={LOGIN_PATH} element={<Login />} />
       <Route path={REGISTER_PATH} element={<Register />} />
       <Route
-        path={APP}
+        path={APP_PATH}
         element={
           <RouteProtected redirectTo={Login}>
             <Geoviewer />

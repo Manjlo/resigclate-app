@@ -3,7 +3,7 @@ import { ReactComponent as UserSvg } from "../../assets/svg/usersvg.svg";
 import { ReactComponent as PasswordSvg } from "../../assets/svg/passwordsvg.svg";
 import InputWithIcon from "../atoms/InputWithIcon";
 import LoginButton from "../atoms/LoginButton";
-import LinkToCreateAccount from "../atoms/LinkToCreateAccount";
+import LinkButton from "../atoms/LinkButton";
 
 // eslint-disable-next-line react/prop-types
 function Loginform({ handleLogin, callbackRegister, register, errors }) {
@@ -45,7 +45,9 @@ function Loginform({ handleLogin, callbackRegister, register, errors }) {
       />
       <div className="relative">
         <div className="absolute inset-0 border-t-2 border-[#37373e55] opacity-50 h-2 sm:w-0"></div>
-        <LinkToCreateAccount arrow={"→"} text={"Crear una cuenta"} callback={callbackRegister} />
+        <LinkButton text={"Crear una cuenta"} callback={callbackRegister}>
+          <span>→</span>
+        </LinkButton>
       </div>
     </div>
   );

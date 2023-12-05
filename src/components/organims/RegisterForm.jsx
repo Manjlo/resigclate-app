@@ -1,7 +1,7 @@
 import React from "react";
 import InputWithIcon from "../atoms/InputWithIcon";
 import LoginButton from "../atoms/LoginButton";
-import LinkToCreateAccount from "../atoms/LinkToCreateAccount";
+import LinkToCreateAccount from "../atoms/LinkButton";
 import { EMAIL, PASSWORD, PHONE } from "../../utils/codeRegex";
 
 const RegisterForm = ({ register, handleSubmit, errors, callbackLogin }) => {
