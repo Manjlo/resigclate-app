@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MyMap from "../templates/MyMap";
+import MyMap from "../templates/MapTemplate";
 import baseLayers from "../../assets/json/baseLayers.json";
 import "leaflet/dist/leaflet.css";
 

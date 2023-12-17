@@ -1,16 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header" style={{color:'green', fontSize:'48px'}}>
+      <header className="App-header" style={{ color: "green", fontSize: "48px" }}>
         Resigclate ♻️
-      <span style={{color:'white'}}>
-        pronto ...
-      </span>
+        <span style={{ color: "white" }}>pronto ...</span>
       </header>
-
     </div>
   );
 }

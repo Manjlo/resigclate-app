@@ -1,8 +1,7 @@
 import { ReactComponent as Create } from "../../assets/svg/createPointMovil.svg";
 import { ReactComponent as GpsRT } from "../../assets/svg/gpsRoutesTarget.svg";
 import { ReactComponent as Back } from "../../assets/svg/backIcon.svg";
-import { OpenStreetMapProvider } from "leaflet-geosearch";
-import { useEffect } from "react";
+import { useCoordinates } from "../../custom-hooks/useCoordinates";
 
 function RoutesTarget({
   isOpenRoutesTarget,
@@ -12,29 +11,7 @@ function RoutesTarget({
   setCoorOne,
   setCoorTwo
 }) {
-  const provider = new OpenStreetMapProvider();
-
-  const getCoordinates = async (address) => {
-    if (!address) {
-      throw new Error(`La dirección proporcionada es inválida: ${address}`);
-    }
-    const results = await provider.search({ query: address });
-    if (results[0]) {
-      const { x: lng, y: lat } = results[0];
-      return [lat, lng];
-    } else {
-      throw new Error(`No se encontraron resultados para la dirección: ${address}`);
-    }
-  };
-
-  useEffect(() => {
-    if (inputValue) {
-      getCoordinates(inputValue).then(setCoorOne);
-    }
-    if (newAddress) {
-      getCoordinates(newAddress).then(setCoorTwo);
-    }
-  }, [inputValue, newAddress]);
+  const { address } = useCoordinates({ inputValue, newAddress, setCoorOne, setCoorTwo });
 
   return isOpenRoutesTarget === true ? (
     <section className="absolute flex flex-col w-[400px] h-auto bg-white m-0 top-0 z-[1000] rounded-lg shadow-xl">
@@ -54,7 +31,7 @@ function RoutesTarget({
             className="outline-none truncate p-3 border border-[#162128] rounded-lg text-xs w-64"
           />
           <input
-            value={newAddress}
+            value={address}
             type="text"
             className="outline-none p-3 border border-[#0074b7] rounded-lg text-xs w-64"
             placeholder="Aqui ira la direccion del punto de reciclaje donde iras"

@@ -1,12 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        Resigclate
-      </header>
+      <header className="App-header">Resigclate</header>
     </div>
   );
 }
