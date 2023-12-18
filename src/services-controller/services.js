@@ -1,8 +1,10 @@
 import axios from "axios";
 import { getToken } from "../services-firebase/auth";
 
-const PATH_BASE = "http://127.0.0.1:5001/vivid-pen-403105/us-central1/app";
+const PATH_LOCAL = "http://127.0.0.1:5001/vivid-pen-403105/us-central1/app";
+const ONLINE_PATH_BASE = "https://us-central1-vivid-pen-403105.cloudfunctions.net/app";
 
+const PATH_BASE = ONLINE_PATH_BASE;
 const configHeaders = async () => {
   const token = await getToken();
   return {

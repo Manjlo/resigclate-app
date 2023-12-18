@@ -4,10 +4,11 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword
 } from "firebase/auth";
-import firebaseApp from "./handler";
 
-const auth = getAuth(firebaseApp);
+import { firebaseConfig, initializeApp } from "./handler";
 
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 const saveAuth = (user) => {
   localStorage.setItem("user", JSON.stringify(user));
 };
@@ -16,8 +17,15 @@ const getToken = () => auth?.currentUser?.getIdToken();
 
 export const currentUser = auth.currentUser;
 
-export const login = (email, password) => {
-  return signInWithEmailAndPassword(auth, email, password);
+export const login = async (email, password) => {
+  console.log(auth.currentUser, "auth");
+  console.log(auth);
+  try {
+    const response = await signInWithEmailAndPassword(auth, email, password);
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const register = async (email, password) => {
