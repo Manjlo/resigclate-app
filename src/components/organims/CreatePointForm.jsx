@@ -1,18 +1,29 @@
 import Logo from "../../assets/icons/logo.png";
 import { useAddress } from "../../custom-hooks/useAddress";
+import { useAddressToCoords } from "../../custom-hooks/useAddressToCoords";
 import ComponentButton from "../atoms/ComponentButton";
 import React from "react";
 
-function CreatePointForm({ newAddress, setNewAddress, handleSelectPoint }) {
+function CreatePointForm({ setCoordsNewPoint, newAddress, setNewAddress, handleSelectPoint }) {
   const coordinates =
     newAddress && newAddress.lat && newAddress.lng ? [newAddress.lat, newAddress.lng] : null;
   const address = coordinates ? useAddress(coordinates) : null;
+  console.log("this is the " + address);
+  const { searchCoords } = useAddressToCoords();
 
-  const handleAddrressChange = (event) => {
-    setNewAddress(event.target.value);
+  const getCoords = async () => {
+    if (address == null || address == "undefined") return;
+    if (address) {
+      const coords = await searchCoords(address);
+      console.log(coords);
+    }
   };
 
-  console.log(newAddress);
+  const handleAddrressChange = (event) => {
+    console.log(event.target.value + "ghghhg");
+    setNewAddress(event.target.value);
+    setCoordsNewPoint(event.target.value);
+  };
 
   return (
     <div className="pointform-animation bg-white absolute shadow-2xl rounded-none sm:rounded-lg sm:w-[400px] w-full h-auto top-0 sm:top-6 left-0 sm:left-6 z-[10000]">
@@ -47,6 +58,7 @@ function CreatePointForm({ newAddress, setNewAddress, handleSelectPoint }) {
           <ComponentButton
             buttonStyleMissing={"p-1 sm:pl-4 sm:pr-4 bg-[#228b22]"}
             textButton={"Aceptar"}
+            onClick={getCoords}
           />
         </div>
       </article>

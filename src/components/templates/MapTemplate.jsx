@@ -10,6 +10,7 @@ import { useAddressOnMap } from "../../custom-hooks/useAddressOnMap.js";
 import { ReactComponent as IconBarMovilSvg } from "../../assets/svg/barMovil.svg";
 import { ReactComponent as IconBarSvg } from "../../assets/svg/iconBars.svg";
 import Map from "../organims/Map.jsx";
+import ServicesForm from "../organims/services-form/ServicesForm.jsx";
 
 const usuario = "javier";
 
@@ -26,17 +27,27 @@ const MapTemplate = ({
   recyPointSelected
 }) => {
   const [inputValue, setInputValue] = useState("");
-  const [coorOne, setCoorOne] = useState(null);
+  const [latLng, setLatLng] = useState(null);
+  const [coordsNewPoint, setCoordsNewPoint] = useState(null);
+  const [markers, setMarkers] = useState([]);
   const [coorTwo, setCoorTwo] = useState(null);
   const [routeView, setRouteView] = useState(false);
-  const { newAddress, geocodeAddress, setNewAddress } = useAddressOnMap();
+  const [formView, setFormView] = useState(false);
+  const { newAddress, setNewAddress } = useAddressOnMap();
 
-  const handleAddress = (coorTwo) => {
-    geocodeAddress(coorTwo.latlng.lat, coorTwo.latlng.lng);
+  console.log("this is the call from coortwo" + coorTwo);
+  console.log("this is the call from latLng" + latLng);
+
+  const addMarker = () => {
+    setMarkers([...markers, coordsNewPoint]);
   };
 
   const handleRouteView = () => {
     setRouteView(!routeView);
+  };
+
+  const handleFormView = () => {
+    setFormView(!formView);
   };
 
   return (
@@ -49,9 +60,7 @@ const MapTemplate = ({
         baseLayers={baseLayers}
         zoomControl={zoomControl}
         setInputValue={setInputValue}
-        coorOne={coorOne}
         coorTwo={coorTwo}
-        handleClick={handleAddress}
         setNewAddress={setNewAddress}
         setCoorTwo={setCoorTwo}
         routeView={routeView}
@@ -59,6 +68,9 @@ const MapTemplate = ({
         handleSelectRecyPoint={handleSelectRecyPoint}
         selectPoint={selectPoint}
         selectRecyPoint={selectRecyPoint}
+        markers={markers}
+        setLatLng={setLatLng}
+        latLng={latLng}
       />
       {!selectPoint && !selectRecyPoint && (
         <div className="w-8 h-8 sm:h-[70px] sm:w-[70px] absolute top-[60px] sm:top-4 right-12 sm:left-12 rounded-full shadow-sm z-[10000]">
@@ -75,6 +87,7 @@ const MapTemplate = ({
           </span>
           <ItemsBar
             handleSelectPoint={handleSelectPoint}
+            handleFormView={handleFormView}
             perfilurl={usuarioUrl}
             usuario={usuario}
             styleMissing={"mx-6 grid grid-cols-5 h-auto relative items-center justify-center"}
@@ -86,6 +99,8 @@ const MapTemplate = ({
           newAddress={newAddress}
           setNewAddress={setNewAddress}
           handleSelectPoint={handleSelectPoint}
+          addMarker={addMarker}
+          setCoordsNewPoint={setCoordsNewPoint}
         />
       )}
       {selectRecyPoint && (
@@ -95,9 +110,10 @@ const MapTemplate = ({
           handleSelectRecyPoint={handleSelectRecyPoint}
           inputValue={inputValue}
           newAddress={newAddress}
-          setCoorOne={setCoorOne}
+          setCoorOne={setLatLng}
           setCoorTwo={setCoorTwo}
           handleRouteView={handleRouteView}
+          latLng={latLng}
         />
       )}
       {selectRecyPoint && (
@@ -111,6 +127,7 @@ const MapTemplate = ({
           imgStyleMissing={"absolute top-[84vh] ml-0"}
         />
       )}
+      {formView && <ServicesForm formView={formView} handleFormView={handleFormView} />}
     </>
   );
 };

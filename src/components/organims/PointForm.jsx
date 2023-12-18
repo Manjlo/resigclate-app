@@ -21,7 +21,8 @@ function PointForm({
   newAddress,
   setCoorOne,
   setCoorTwo,
-  handleRouteView
+  handleRouteView,
+  latLng
 }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isOpenRoutesTarget, setIsOpenRoutesTarget] = useState(false);
@@ -51,8 +52,7 @@ function PointForm({
       <div className="recypoint-animation bg-white absolute shadow-2xl rounded-none sm:rounded-lg w-auto h-auto top-0 sm:top-7 left-0 sm:left-28 z-[1000]">
         <article
           id="article-point-form"
-          className="recypoint-animation scroll-smooth sm:w-[400px] w-[100vw] h-[100vh] rounded-lg sm:h-auto sm:mb-6 flex flex-col overflow-auto sm:max-h-[88vh] 2xl:max-h-[91vh]"
-        >
+          className="recypoint-animation scroll-smooth sm:w-[400px] w-[100vw] h-[100vh] rounded-lg sm:h-auto sm:mb-6 flex flex-col overflow-auto sm:max-h-[88vh] 2xl:max-h-[91vh]">
           {data.features.map((feature, index) => {
             return (
               <div key={index}>
@@ -187,6 +187,7 @@ function PointForm({
             newAddress={newAddress}
             setCoorOne={setCoorOne}
             setCoorTwo={setCoorTwo}
+            latLng={latLng}
           />
         </section>
       </div>

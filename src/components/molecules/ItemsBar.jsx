@@ -10,7 +10,8 @@ function ItemsBar({
   handleSelectPoint,
   styleMissing,
   setStyleIconButton,
-  imgStyleMissing
+  imgStyleMissing,
+  handleFormView
 }) {
   return (
     <div className={styleMissing}>
@@ -26,7 +27,7 @@ function ItemsBar({
         SvgComponent={createPointSvg}
       />
       <div className="w-[50px] sm:w-auto h-[50px] sm:h-auto bg-white sm:bg-transparent shadow-md sm:shadow-none rounded-xl flex items-center justify-center">
-        <IconButton SvgComponent={historySvg} />
+        <IconButton callback={handleFormView} SvgComponent={historySvg} />
       </div>
       <div className="w-[50px] sm:w-auto h-[50px] sm:h-auto bg-white sm:bg-transparent shadow-md sm:shadow-none rounded-xl flex items-center justify-center">
         <div

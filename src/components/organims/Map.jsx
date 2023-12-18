@@ -3,17 +3,17 @@ import JsonLayers from "../atoms/JsonLayers.jsx";
 import LocationMarker from "../atoms/LocationMarker";
 import LayerSwitcher from "../molecules/LayerSwitcher";
 import MyCustomControl from "../molecules/CustomControl.jsx";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import "leaflet-routing-machine";
 import Routing from "../atoms/Routing.jsx";
+import { ReactComponent as iconoPersonalizado } from "../../assets/svg/MarkerPointSvg.svg";
 
 function Map({
   zoomControl,
   baseLayers,
   zoom,
   center,
-  coorOne,
   coorTwo,
   scrollWheelZoom,
   routeView,
@@ -23,8 +23,11 @@ function Map({
   handleSelectRecyPoint,
   selectPoint,
   setInputValue,
+  setLatLng,
   selectRecyPoint,
-  setNewAddress
+  setNewAddress,
+  markers,
+  latLng
 }) {
   return (
     <MapContainer
@@ -32,9 +35,8 @@ function Map({
       center={center}
       zoom={zoom}
       scrollWheelZoom={scrollWheelZoom}
-      zoomControl={zoomControl}
-    >
-      {coorOne && coorTwo && routeView && <Routing coorOne={coorOne} coorTwo={coorTwo} />}
+      zoomControl={zoomControl}>
+      {latLng && coorTwo && routeView && <Routing coorOne={latLng} coorTwo={coorTwo} />}
       <TileLayer attribution={baseLayers[0].attribution} url={baseLayers[0].url} />
       <JsonLayers
         setCoorTwo={setCoorTwo}
@@ -43,10 +45,13 @@ function Map({
         handleClick={handleClick}
       />
       <MyCustomControl className="sm:grid sm:grid-rows-2 gap-2 sm:w-10 w-10 h-10 sm:h-24 bg-white shadow-md rounded-lg relative sm:top-[44px] top-[15vh] flex items-center justify-center right-3.5 sm:right-0">
-        <LocationMarker setInputValue={setInputValue} />
+        <LocationMarker setInputValue={setInputValue} setLatLng={setLatLng} />
         <LayerSwitcher baseLayers={baseLayers} />
       </MyCustomControl>
       {selectPoint && !selectRecyPoint && <MarkerPoint setAddress={setNewAddress} />}
+      {markers.map((marker, i) => (
+        <Marker key={i} position={[marker.lat, marker.lng]} icon={iconoPersonalizado} />
+      ))}
     </MapContainer>
   );
 }

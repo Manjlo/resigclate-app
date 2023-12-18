@@ -9,7 +9,8 @@ function RoutesTarget({
   inputValue,
   newAddress,
   setCoorOne,
-  setCoorTwo
+  setCoorTwo,
+  latLng
 }) {
   const { address } = useCoordinates({ inputValue, newAddress, setCoorOne, setCoorTwo });
 
@@ -31,7 +32,7 @@ function RoutesTarget({
             className="outline-none truncate p-3 border border-[#162128] rounded-lg text-xs w-64"
           />
           <input
-            value={address}
+            value={latLng}
             type="text"
             className="outline-none p-3 border border-[#0074b7] rounded-lg text-xs w-64"
             placeholder="Aqui ira la direccion del punto de reciclaje donde iras"
@@ -43,6 +44,7 @@ function RoutesTarget({
           <Create className="w-8" />
         </span>
         <h2>Añadir otro destino</h2>
+        <p>{address}</p>
       </div>
     </section>
   ) : null;

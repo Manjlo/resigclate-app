@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MyMap from "../templates/MapTemplate";
+import MapTemplate from "../templates/MapTemplate";
 import baseLayers from "../../assets/json/baseLayers.json";
 import "leaflet/dist/leaflet.css";
 
@@ -22,7 +22,7 @@ function Geoviewer() {
   return (
     <div className="flex items-center justify-center h-screen">
       <section className="bg-white w-full h-full sm:w-[99%] sm:h-[98vh] sm:rounded-md [&>TemplateGeo]:sm:rounded-md sm:shadow-md">
-        <MyMap
+        <MapTemplate
           center={center}
           zoom={13}
           scrollWheelZoom={true}
